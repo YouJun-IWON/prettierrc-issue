@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --cache",
-    "format": "prettier --cache --write  . '!(node_modules|.next)/**/*'",
+    "lint": "next lint",
+    "format": "prettier --write  . '!(node_modules|.next)/**/*'",
     "tsc": "tsc -p tsconfig.json --noEmit",
     "check-types": "tsc --noEmit --incremental",
     "prepare": "husky"
