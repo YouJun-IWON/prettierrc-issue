@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { DM_Sans as FontSans } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "@/styles/globals.css";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+const font = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "AIM Dashboard",
@@ -21,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body className={font.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

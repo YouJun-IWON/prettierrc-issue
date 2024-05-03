@@ -1,4 +1,4 @@
-import Navigation from "@/components/navigation";
+import Navigation from "@/components/bar/navbar";
 import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
