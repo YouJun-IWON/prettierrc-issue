@@ -15,8 +15,10 @@ const Navigation = () => {
       </aside>
       <nav className="hidden md:block absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%]">
         <ul className="flex items-center justify-center gap-8">
-          {NAV_ITEMS.map(item => (
-            <Link href={item.path}>{item.title}</Link>
+          {NAV_ITEMS.map((item, idx) => (
+            <Link href={item.path} key={idx}>
+              {item.title}
+            </Link>
           ))}
         </ul>
       </nav>

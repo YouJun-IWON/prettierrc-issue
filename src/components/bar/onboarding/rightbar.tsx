@@ -1,6 +1,4 @@
-type Props = {};
-
-const Rightbar = (props: Props) => {
+const Rightbar = () => {
   return <div>Rightbar</div>;
 };
 

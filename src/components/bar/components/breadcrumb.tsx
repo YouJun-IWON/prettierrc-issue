@@ -10,9 +10,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-type Props = {};
-
-const Breadcrumbset = (props: Props) => {
+const Breadcrumbset = () => {
   const pathname = usePathname();
 
   const segments = pathname

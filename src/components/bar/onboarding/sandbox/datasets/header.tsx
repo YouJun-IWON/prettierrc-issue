@@ -6,9 +6,7 @@ import Breadcrumbset from "@/components/bar/components/breadcrumb";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-type Props = {};
-
-const Header = (props: Props) => {
+const Header = () => {
   const pathName = usePathname();
 
   return (

@@ -6,9 +6,7 @@ import { usePathname } from "next/navigation";
 import { SIDEBAR_ITEMS } from "./components/constants";
 import { cn } from "@/lib/utils";
 
-type Props = {};
-
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
   const pathname = usePathname();
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex mt-[47px]">
