@@ -19,7 +19,6 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 import { DataTablePagination } from "./components/data-table-pagination";
-import { DataTableToolbar } from "./components/data-table-toolbar";
 import { useDatasetsTable } from "@/store/useDatasetsTable";
 import { useRouter } from "next/navigation";
 import { dataSchema } from "./data/schema";

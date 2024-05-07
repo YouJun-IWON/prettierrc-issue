@@ -13,7 +13,7 @@ export function DataTableToolbar() {
     if (table) {
       table.getColumn("title")?.setFilterValue(searchTerm);
     }
-  }, [searchTerm]);
+  }, [searchTerm, table]);
 
   if (!table) return null;
 

@@ -9,8 +9,6 @@ import {
 } from "@/components/ui/sheet";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
-type Props = {};
-
 const test_API_Data = [
   {
     name: "Context Sufficiency",
@@ -42,7 +40,7 @@ const test_API_Data = [
   },
 ];
 
-const EvaluateSheet = (props: Props) => {
+const EvaluateSheet = () => {
   return (
     <SheetContent className="min-w-[600px] flex flex-col py-10 justify-between">
       <SheetHeader>
