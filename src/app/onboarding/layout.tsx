@@ -1,4 +1,5 @@
 import NavbarOnboarding from "@/components/bar/onboarding/navbar";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

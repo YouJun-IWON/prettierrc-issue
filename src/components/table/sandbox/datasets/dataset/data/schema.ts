@@ -4,10 +4,9 @@ import { z } from "zod";
 // IRL, you will have a schema for your data models.
 export const dataSchema = z.object({
   id: z.string(),
-  title: z.string(),
-  status: z.string(),
-  label: z.string(),
-  priority: z.string(),
+  query: z.string(),
+  context: z.string(),
+  response: z.string(),
 });
 
 export type Task = z.infer<typeof dataSchema>;

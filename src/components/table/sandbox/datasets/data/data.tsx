@@ -5,7 +5,6 @@ import {
   CheckCircledIcon,
   CircleIcon,
   CrossCircledIcon,
-  QuestionMarkCircledIcon,
   StopwatchIcon,
 } from "@radix-ui/react-icons";
 
@@ -15,21 +14,16 @@ export const labels = [
     label: "Bug",
   },
   {
-    value: "feature",
-    label: "Feature",
+    value: "rag",
+    label: "Rag",
   },
   {
-    value: "documentation",
-    label: "Documentation",
+    value: "prompt injection",
+    label: "Prompt Injection",
   },
 ];
 
 export const statuses = [
-  {
-    value: "backlog",
-    label: "Backlog",
-    icon: QuestionMarkCircledIcon,
-  },
   {
     value: "todo",
     label: "Todo",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const layout = ({ children }: { children: React.ReactNode }) => {
-  return <main>{children}</main>;
+  return <main className="h-screen overflow-clip">{children}</main>;
 };
 
 export default layout;

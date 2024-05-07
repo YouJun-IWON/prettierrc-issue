@@ -33,7 +33,23 @@ export function DataTableFacetedFilter<TData, TValue>({
   options,
 }: DataTableFacetedFilterProps<TData, TValue>) {
   const facets = column?.getFacetedUniqueValues();
-  const selectedValues = new Set(column?.getFilterValue() as string[]);
+  const [selectedValues, onSelectionChange] = React.useState(new Set<string>());
+
+  const handleSelectionChange = (option: { value: string }) => {
+    const newSelectedValues = new Set(selectedValues);
+    if (selectedValues.has(option.value)) {
+      newSelectedValues.delete(option.value);
+    } else {
+      newSelectedValues.add(option.value);
+    }
+    onSelectionChange(newSelectedValues);
+    const filterValues = Array.from(newSelectedValues);
+    column?.setFilterValue(filterValues.length ? filterValues : undefined);
+  };
+
+  React.useEffect(() => {
+    console.log(selectedValues);
+  }, [selectedValues]);
 
   return (
     <Popover>
@@ -78,6 +94,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                   <CommandItem
                     key={option.value}
                     onSelect={() => {
+                      handleSelectionChange(option);
                       if (isSelected) {
                         selectedValues.delete(option.value);
                       } else {
@@ -111,7 +128,10 @@ export function DataTableFacetedFilter<TData, TValue>({
                 <CommandSeparator />
                 <CommandGroup>
                   <CommandItem
-                    onSelect={() => column?.setFilterValue(undefined)}
+                    onSelect={() => {
+                      column?.setFilterValue(undefined);
+                      onSelectionChange(new Set());
+                    }}
                     className="justify-center text-center"
                   >
                     Clear filters

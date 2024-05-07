@@ -19,14 +19,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { labels } from "../data/data";
-import { taskSchema } from "../data/schema";
+import { dataSchema } from "../data/schema";
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;
 }
 
 export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TData>) {
-  const task = taskSchema.parse(row.original);
+  const task = dataSchema.parse(row.original);
 
   return (
     <DropdownMenu>

@@ -1,21 +1,27 @@
 "use client";
 
-import { File, PlusCircle } from "lucide-react";
+import { File, PlusCircle, Zap } from "lucide-react";
 
 import Breadcrumbset from "@/components/bar/components/breadcrumb";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { DataTableToolbar } from "@/components/table/sandbox/datasets/components/data-table-toolbar";
+import { DataTableToolbar } from "@/components/table/sandbox/datasets/dataset/components/data-table-toolbar";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import EvaluateSheet from "@/components/sheets/datasets/dataset/evaluate-sheet";
 
-const Header = () => {
+interface HeaderProps {
+  id: string;
+}
+
+const Header = ({ id }: HeaderProps) => {
   const pathName = usePathname();
 
   return (
     <header
       className={cn(
         "sticky top-0 z-20 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto  sm:bg-transparent sm:px-6 ml-14 border-gray-200 py-4",
-        { hidden: pathName !== "/onboarding/sandbox/datasets" },
+        { hidden: pathName !== `/onboarding/sandbox/datasets/${id}` },
       )}
     >
       <Breadcrumbset />
@@ -32,6 +38,16 @@ const Header = () => {
           <PlusCircle className="h-3.5 w-3.5" />
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Dataset</span>
         </Button>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button size="sm" variant="outline" className="h-8 gap-1 text-purple-600">
+              <Zap className="h-3.5 w-3.5" />
+              <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Evaluate</span>
+            </Button>
+          </SheetTrigger>
+          <EvaluateSheet />
+        </Sheet>
       </div>
     </header>
   );
