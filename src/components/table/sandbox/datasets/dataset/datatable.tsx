@@ -20,8 +20,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 import { DataTablePagination } from "./components/data-table-pagination";
 
-import { useRouter } from "next/navigation";
-
 import { useDatasetTable } from "@/store/useDatasetTable";
 
 interface DataTableProps<TData, TValue> {
@@ -30,8 +28,6 @@ interface DataTableProps<TData, TValue> {
 }
 
 export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
-  const router = useRouter();
-
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
