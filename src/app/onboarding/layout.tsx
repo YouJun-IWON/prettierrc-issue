@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="h-screen overflow-clip">
+    <main>
       <NavbarOnboarding />
       {children}
     </main>

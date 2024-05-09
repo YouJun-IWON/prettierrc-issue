@@ -15,7 +15,6 @@ export const columns: ColumnDef<Task>[] = [
         checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
         onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
-        className="translate-y-[2px]"
       />
     ),
     cell: ({ row }) => (
@@ -23,7 +22,6 @@ export const columns: ColumnDef<Task>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={value => row.toggleSelected(!!value)}
         aria-label="Select row"
-        className="translate-y-[2px]"
       />
     ),
     enableSorting: false,
@@ -32,7 +30,7 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: "id",
     header: ({ column }) => <DataTableColumnHeader column={column} title="ID" />,
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
+    cell: ({ row }) => <div className="w-[10px]">{row.getValue("id")}</div>,
     enableSorting: false,
     enableHiding: false,
   },
@@ -42,7 +40,9 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] h-[100px] truncate font-medium">{row.getValue("query")}</span>
+          <span className="max-w-[500px] h-[100px] overflow-y-auto custom-scrollbar font-medium">
+            {row.getValue("query")}
+          </span>
         </div>
       );
     },
@@ -56,7 +56,9 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px]  h-[100px]  font-medium">{truncatedContext}</span>
+          <span className="max-w-[500px] overflow-y-auto custom-scrollbar  h-[100px]  font-medium ">
+            {truncatedContext}
+          </span>
         </div>
       );
     },
@@ -70,7 +72,9 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] h-[100px]  font-medium">{truncatedContext}</span>
+          <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[100px]  font-medium">
+            {truncatedContext}
+          </span>
         </div>
       );
     },

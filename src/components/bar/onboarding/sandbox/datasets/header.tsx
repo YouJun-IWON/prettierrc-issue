@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-20 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto  sm:bg-transparent sm:px-6 ml-14 border-gray-200 py-4",
+        "sticky top-0 z-20 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-16  sm:bg-transparent sm:px-6 ml-14 border-gray-200 py-4",
         { hidden: pathName !== "/onboarding/sandbox/datasets" },
       )}
     >

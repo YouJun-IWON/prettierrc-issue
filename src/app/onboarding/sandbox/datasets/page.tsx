@@ -9,8 +9,8 @@ const page = () => {
   return (
     <div className="h-screen flex flex-col ">
       <Header />
-      <div className="flex overflow-y-scroll h-screen custom-scrollbar flex-col sm:gap-4 sm:py-4 sm:pl-14  bg-muted/40">
-        <main className="grid mb-20 items-start gap-4 p-4 sm:px-6 sm:py-0 ">
+      <div className="flex-grow overflow-y-auto custom-scrollbar py-4 pl-14 bg-muted/40">
+        <main className="mb-20 items-start p-4 ">
           <DataTable data={test_dataset} columns={columns} />
         </main>
       </div>

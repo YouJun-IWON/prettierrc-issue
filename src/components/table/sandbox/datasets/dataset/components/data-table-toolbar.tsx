@@ -25,9 +25,6 @@ export function DataTableToolbar() {
           onChange={event => setSearchTerm(event.target.value)}
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {/* <DataTableFacetedFilter column={table.getColumn("status")} title="Status" options={statuses} />
-        <DataTableFacetedFilter column={table.getColumn("priority")} title="Priority" options={priorities} /> */}
-
         <DataTableViewOptions table={table} />
       </div>
     </div>

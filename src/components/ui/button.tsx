@@ -14,7 +14,7 @@ const buttonVariants = cva(
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-primary bg-transparent underline-offset-4 hover:underline",
         navbar:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:bg-blue-500/20 hover:border-cyan-600",
       },
@@ -23,6 +23,7 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
+        smIcon: "h-6 w-6",
       },
     },
     defaultVariants: {
