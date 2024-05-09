@@ -12,39 +12,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Play } from "lucide-react";
-import { useDatasetTable } from "@/store/useDatasetTable";
-import { test_dataset_1 } from "@/test/dataset-1";
 
-const test_API_Data = [
-  {
-    name: "Context Sufficiency",
-    desc: "Checks if the context contains enough information to answer the user's query",
-    input: ["query", "context"],
-    output: "passfail",
-    llm: "gpt-4-turbo",
-  },
-  {
-    name: "No people names",
-    desc: "Checks the response according to your grading criteria",
-    input: ["response"],
-    output: "passfail",
-    llm: "gpt-3.5-turbo",
-  },
-  {
-    name: "Ragas Faithfulness",
-    desc: "Measures the factual consistency of the generated answer against the given context.",
-    input: ["query", "context", "response"],
-    output: "Ragas Faithfulness",
-    llm: "gpt-3.5-turbo",
-  },
-  {
-    name: "Answer Completeness",
-    desc: "Checks if the context contains enough information to answer the user's query",
-    input: ["query", "response"],
-    output: "passfail",
-    llm: "gpt-4-turbo",
-  },
-];
+import { test_dataset_1 } from "@/test/dataset-1";
+import { test_API_Data } from "@/test/api";
 
 const EvaluateSheet = () => {
   const targetData = test_dataset_1;
