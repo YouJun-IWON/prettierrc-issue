@@ -79,4 +79,20 @@ export const columns: ColumnDef<Task>[] = [
       );
     },
   },
+  {
+    accessorKey: "expected",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Expected" />,
+    cell: ({ row }) => {
+      const context: string = row.getValue("expected");
+      const truncatedContext = context.length > 300 ? context.slice(0, 300) + "..." : context;
+
+      return (
+        <div className="flex space-x-2">
+          <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[100px]  font-medium">
+            {truncatedContext}
+          </span>
+        </div>
+      );
+    },
+  },
 ];

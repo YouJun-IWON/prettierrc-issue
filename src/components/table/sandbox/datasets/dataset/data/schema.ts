@@ -7,6 +7,7 @@ export const dataSchema = z.object({
   query: z.string(),
   context: z.string(),
   response: z.string(),
+  expected: z.string(),
 });
 
 export type Task = z.infer<typeof dataSchema>;

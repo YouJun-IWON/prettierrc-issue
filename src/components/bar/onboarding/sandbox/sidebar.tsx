@@ -11,23 +11,29 @@ const Sidebar = () => {
   return (
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex mt-[47px]">
       <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
-        {SIDEBAR_ITEMS.map((item, idx) => (
-          <Tooltip key={idx}>
-            <TooltipTrigger asChild>
-              <Link
-                href={item.path}
-                className={cn(
-                  "flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 ",
-                  { "bg-blue-700 text-white": pathname === item.path },
-                )}
-              >
-                {item.icon}
-                <span className="sr-only">{item.title}</span>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right">{item.title}</TooltipContent>
-          </Tooltip>
-        ))}
+        {SIDEBAR_ITEMS.map((item, idx) => {
+          const isActive =
+            pathname === item.path || (item.path !== "/onboarding/sandbox" && pathname.startsWith(item.path));
+          return (
+            <Tooltip key={idx}>
+              <TooltipTrigger asChild>
+                <Link
+                  href={item.path}
+                  className={cn(
+                    "flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8",
+                    {
+                      "bg-blue-700 text-white": isActive,
+                    },
+                  )}
+                >
+                  {item.icon}
+                  <span className="sr-only">{item.title}</span>
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="right">{item.title}</TooltipContent>
+            </Tooltip>
+          );
+        })}
       </nav>
       <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
         <Tooltip>

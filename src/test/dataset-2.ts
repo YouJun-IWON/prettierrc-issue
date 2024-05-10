@@ -1,12 +1,9 @@
-export const test_dataset_2 = [
+export const test_dataset_1 = [
   {
-    query: "I'd like to buy a smartphone?",
+    id: 1,
+    query: "",
     context: "",
-    response: "Sure, I can help with that. Where do you live?",
-  },
-  {
-    query: "SF",
-    context: "",
-    response: "Are you looking for rental apartments in SF?",
+    response: "",
+    expected: "",
   },
 ];

@@ -7,15 +7,17 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { DataTableToolbar } from "@/components/table/sandbox/datasets/dataset/components/data-table-toolbar";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import EvaluateSheet from "@/components/sheets/datasets/dataset/evaluate-sheet";
+import { useSheet } from "@/store/useSheetStore";
 
 interface HeaderProps {
   id: string;
+  dataset: any;
 }
 
-const Header = ({ id }: HeaderProps) => {
+const Header = ({ id, dataset }: HeaderProps) => {
   const pathName = usePathname();
+
+  const { onOpen } = useSheet();
 
   return (
     <header
@@ -39,15 +41,15 @@ const Header = ({ id }: HeaderProps) => {
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Add Dataset</span>
         </Button>
 
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button size="sm" variant="outline" className="h-8 gap-1 text-purple-600">
-              <Zap className="h-3.5 w-3.5" />
-              <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Evaluate</span>
-            </Button>
-          </SheetTrigger>
-          <EvaluateSheet />
-        </Sheet>
+        <Button
+          onClick={() => onOpen("showEvalTool", { dataset })}
+          size="sm"
+          variant="outline"
+          className="h-8 gap-1 text-purple-600"
+        >
+          <Zap className="h-3.5 w-3.5" />
+          <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Evaluate</span>
+        </Button>
       </div>
     </header>
   );

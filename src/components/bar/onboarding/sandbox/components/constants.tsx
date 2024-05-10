@@ -13,7 +13,7 @@ export const SIDEBAR_ITEMS: BarItem[] = [
   },
   {
     title: "Analytics",
-    path: "/dashboard/analytics",
+    path: "/dashboard/sandbox/analytics",
     icon: <LineChart className="h-5 w-5" strokeWidth={1} />,
   },
 ];
