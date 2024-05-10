@@ -15,7 +15,7 @@ interface DatasetTableState {
   setAddressName: (address: string) => void;
 }
 
-export const useDatasetTable = create<DatasetTableState>((set, get) => ({
+export const useDatasetTable = create<DatasetTableState>(set => ({
   table: null,
   setTable: table => set({ table }),
   columns: [],

@@ -21,10 +21,10 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
       }
       return response.body;
     },
-    onMutate(message) {
+    onMutate() {
       addLoadingColumn({ addressName, addColumns });
     },
-    onSuccess: async stream => {
+    onSuccess() {
       //if (!stream) throw new Error("No stream found");
       //! 여기서 결과값에 따른 Column row 데이터 수정
       // 여기서 table 정의하기
@@ -36,7 +36,7 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
       //   setInput!("");
       // }
     },
-    onError: (_, message) => {
+    onError: () => {
       // if (!firstTouch) {
       // }
       // removeMessage(message.id);

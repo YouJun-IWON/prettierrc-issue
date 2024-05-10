@@ -1,24 +1,10 @@
 import { DataTableColumnHeader } from "@/components/table/sandbox/datasets/dataset/components/data-table-column-header";
 import { Task } from "@/components/table/sandbox/datasets/dataset/data/schema";
-import { useDatasetTable } from "@/store/useDatasetTable";
+
 import { ColumnDef } from "@tanstack/react-table";
 import React from "react";
 
 const addLoadingColumn = ({ addressName, addColumns }: { addressName: string; addColumns: any }) => {
-  //   const newwColumn: ColumnDef<Task>[] = [
-  //   {
-  //     accessorKey: "test", // custom
-  //     header: ({ column }) => <DataTableColumnHeader column={column} title="test" />, // custom
-  //     cell: ({ row }) => {
-  //       return (
-  //         <div className="flex space-x-2">
-  //           <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[100px]  font-medium">loading...</span>
-  //         </div>
-  //       );
-  //     },
-  //   },
-  // ];
-
   const newColumn: ColumnDef<Task>[] = [
     {
       id: addressName,

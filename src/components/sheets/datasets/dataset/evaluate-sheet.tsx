@@ -26,7 +26,7 @@ const EvaluateSheet = () => {
   const { dataset } = data;
   const { setAddress, setAddressName } = useDatasetTable();
 
-  const { mutate: sendData, isPending } = useEvaluationServer();
+  //const { mutate: sendData, isPending } = useEvaluationServer();
 
   const handleSubmit = (address: string) => {
     console.log("address", dataset);

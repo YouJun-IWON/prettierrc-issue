@@ -3,10 +3,7 @@ import Header from "@/components/bar/onboarding/sandbox/datasets/dataset/header"
 import { DataTable } from "@/components/table/sandbox/datasets/dataset/datatable";
 import { test_dataset_1 } from "@/test/dataset-1";
 import { columns as originalColumns } from "@/components/table/sandbox/datasets/dataset/components/columns";
-import { DataTableColumnHeader } from "@/components/table/sandbox/datasets/dataset/components/data-table-column-header";
-import { ColumnDef } from "@tanstack/react-table";
-import { Task } from "@/components/table/sandbox/datasets/dataset/data/schema";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDatasetTable } from "@/store/useDatasetTable";
 
 const page = ({ params }: { params: { id: string } }) => {
