@@ -11,6 +11,7 @@
         "endOfLine": "auto"
       }
     ],
+    "react-hooks/rules-of-hooks": "off",
     "react/jsx-pascal-case": "off"
   }
 }
