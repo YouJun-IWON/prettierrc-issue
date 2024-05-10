@@ -11,11 +11,6 @@
         "endOfLine": "auto"
       }
     ],
-    "react/jsx-pascal-case": [
-      "error",
-      {
-        "allowPattern": "^[a-z]"
-      }
-    ]
+    "react/jsx-pascal-case": "off"
   }
 }
