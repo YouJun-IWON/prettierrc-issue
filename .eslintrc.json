@@ -10,6 +10,12 @@
       {
         "endOfLine": "auto"
       }
+    ],
+    "react/jsx-pascal-case": [
+      "error",
+      {
+        "allowPattern": "^[a-z]"
+      }
     ]
   }
 }
