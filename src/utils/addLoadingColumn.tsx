@@ -10,7 +10,8 @@ const addLoadingColumn = ({ addressName, addColumns }: { addressName: string; ad
       id: addressName,
       accessorKey: addressName, // custom
       header: ({ column }) => <DataTableColumnHeader column={column} title={addressName} />, // custom
-      cell: ({ row }) => {
+      //! 이거 row 뺏는데 잘 작동하는지 확인
+      cell: () => {
         return (
           <div className="flex space-x-2">
             <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[100px]  font-medium">loading...</span>
