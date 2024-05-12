@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
 import { priorities, statuses } from "../data/data";
 import { DataTableFacetedFilter } from "./data-table-faceted-filter";
-import { useDatasetsTable } from "@/store/useDatasetsTable";
+import { useDatasetsTable } from "@/store/useDatasetsTableStore";
 import { useEffect, useState } from "react";
 
 export function DataTableToolbar() {

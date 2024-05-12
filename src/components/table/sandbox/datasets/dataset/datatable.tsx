@@ -20,7 +20,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 import { DataTablePagination } from "./components/data-table-pagination";
 
-import { useDatasetTable } from "@/store/useDatasetTable";
+import { useDatasetTable } from "@/store/useDatasetTableStore";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

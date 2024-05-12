@@ -1,14 +1,14 @@
-import { useDatasetTable } from "@/store/useDatasetTable";
+import { useDatasetTable } from "@/store/useDatasetTableStore";
 import addLoadingColumn from "@/utils/addLoadingColumn";
 
 import { useMutation } from "@tanstack/react-query";
+import { CircleCheck, CircleX } from "lucide-react";
 
 const useEvaluationServer = (): { mutate: any; isPending: any } => {
-  const { address, addressName, addColumns } = useDatasetTable();
+  const { address, addressName, addColumns, columns, setColumns } = useDatasetTable();
 
   return useMutation({
     mutationFn: async (result: any) => {
-      console.log("realresult", result);
       const response = await fetch(`https://llm-eval.aim-intelligence.com${address}`, {
         method: "POST",
         headers: {
@@ -19,27 +19,55 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
       if (!response.ok) {
         throw new Error();
       }
-      return response.body;
+      return response.json();
     },
     onMutate() {
       addLoadingColumn({ addressName, addColumns });
     },
-    onSuccess() {
-      //if (!stream) throw new Error("No stream found");
+    onSuccess(data) {
+      console.log(data);
+      if (!data) throw new Error("No data found");
       //! 여기서 결과값에 따른 Column row 데이터 수정
-      // 여기서 table 정의하기
-      // clean up
-      // setIsMessageUpdating(false);
+
+      // data[].failed 값으로 열 데이터 업데이트
+      const updatedColumns = columns.map(column => {
+        if (column.id === addressName) {
+          return {
+            ...column,
+            cell: (info: any) => {
+              const rowIndex = info.row.index;
+              const failedValue = data[rowIndex]?.failed;
+              return (
+                <div className="flex items-center justify-center">
+                  {failedValue ? (
+                    <CircleX className="text-red-500" width={50} height={50} />
+                  ) : (
+                    <CircleCheck className="text-blue-500" width={50} height={50} />
+                  )}
+                </div>
+              );
+            },
+          };
+        }
+        return column;
+      });
+
+      setColumns(updatedColumns);
       // setTimeout(() => {
       // }, 10);
-      // if (!firstTouch) {
-      //   setInput!("");
-      // }
     },
     onError: () => {
-      // if (!firstTouch) {
-      // }
-      // removeMessage(message.id);
+      const updatedColumns = columns.map(column => {
+        if (column.id === addressName) {
+          return {
+            ...column,
+            cell: () => <div className="flex items-center justify-center">Error occurred!</div>,
+          };
+        }
+        return column;
+      });
+
+      setColumns(updatedColumns);
     },
   });
 };

@@ -1,120 +1,209 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { Badge } from "@/components/ui/badge";
-import { CircleMinus, Play, Settings } from "lucide-react";
-import { test_API_Data } from "@/test/api";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Slider } from "@/components/ui/slider";
+import { cn } from "@/lib/utils";
+import { useTestAPIConfigsStore } from "@/store/useAPIConfigStore";
+
 import { useSheet } from "@/store/useSheetStore";
+import { useEffect, useState } from "react";
 
-import useSendData from "@/hooks/getDatasetResult/useSendData";
+const EvaluateDetailSheet = () => {
+  const { onOpen, isOpen, onClose, type, data } = useSheet();
+  const isModalOpen = isOpen && type === "showDetailEvalTool";
+  const { configs, updateConfig, setConfigs } = useTestAPIConfigsStore();
+  const { items } = data;
 
-import { useDatasetTable } from "@/store/useDatasetTable";
+  const existingConfig = configs.find(config => config.name === items?.name);
 
-const EvaluateSheet = () => {
-  const { isOpen, onClose, type, data } = useSheet();
-  const isModalOpen = isOpen && type === "showEvalTool";
-  const { dataset } = data;
-  const { setAddress, setAddressName } = useDatasetTable();
+  const [failureThreshold, setFailureThreshold] = useState(
+    existingConfig ? Number(existingConfig.failure_threshold) : 0.5,
+  );
+  const [keywords, setKeywords] = useState(existingConfig ? existingConfig.keywords : [""]);
 
-  //const { mutate: sendData, isPending } = useEvaluationServer();
+  useEffect(() => {
+    const existingConfig = configs.find(config => config.name === items?.name);
+    setFailureThreshold(existingConfig ? Number(existingConfig.failure_threshold) : 0.5);
+  }, [configs, items]);
 
-  const handleSubmit = (address: string) => {
-    console.log("address", dataset);
+  useEffect(() => {
+    setKeywords(existingConfig ? existingConfig.keywords : [""]);
+  }, [configs, items]);
 
-    const result = useSendData(dataset, address);
+  if (!items) return;
 
-    if (!result) return;
-    onClose();
+  const defaultFailureThreshold = existingConfig ? Number(existingConfig.failure_threshold) : failureThreshold;
 
-    //sendData(result);
+  const inputs = [...items.input];
+  const outputs = [...items.output];
 
-    return null;
+  const hasFailureThreshold = inputs.includes("failure_threshold");
+
+  const hasKeywords = inputs.includes("keywords");
+
+  const handleFailureThresholdChange = (value: number[]) => {
+    setFailureThreshold(value[0]);
+  };
+
+  const handleKeywordChange = (index: number, value: string) => {
+    const newKeywords = [...keywords];
+    newKeywords[index] = value;
+    setKeywords(newKeywords);
+  };
+
+  const handleAddKeyword = () => {
+    if (keywords.length < 6) {
+      setKeywords([...keywords, ""]);
+    }
+  };
+
+  const handleRemoveKeyword = (index: number) => {
+    const newKeywords = [...keywords];
+    newKeywords.splice(index, 1);
+    setKeywords(newKeywords);
+  };
+
+  //! Config handling
+  const handleSaveSetting = () => {
+    const configIndex = configs.findIndex(config => config.name === items.name);
+
+    // console.log("configIndex", configIndex);
+
+    if (configIndex !== -1) {
+      //console.log("check1", configs[configIndex]);
+
+      if (hasFailureThreshold) {
+        const updatedConfig = {
+          ...configs[configIndex],
+          failure_threshold: failureThreshold.toFixed(1),
+          keywords: [""],
+        };
+        updateConfig(configIndex, updatedConfig);
+      } else if (hasKeywords) {
+        const updatedConfig = {
+          ...configs[configIndex],
+          failure_threshold: "",
+          keywords,
+          //keywords: [""],
+        };
+        updateConfig(configIndex, updatedConfig);
+      }
+
+      //console.log("configs", configs);
+    } else {
+      //console.log("check2");
+      if (hasFailureThreshold) {
+        const newConfig = {
+          name: items.name,
+          failure_threshold: failureThreshold.toFixed(1),
+          keywords: [""],
+        };
+        setConfigs([...configs, newConfig]);
+      } else if (hasKeywords) {
+        const newConfig = {
+          name: items.name,
+          failure_threshold: "",
+          keywords,
+        };
+        setConfigs([...configs, newConfig]);
+      }
+    }
+    console.log("configs", configs);
+    onOpen("showEvalTool");
   };
 
   return (
     <Sheet open={isModalOpen} onOpenChange={onClose}>
       <SheetContent className="min-w-[600px] flex flex-col py-10 justify-between">
-        <SheetHeader>
-          <SheetTitle>Run Evaluation List</SheetTitle>
-          <SheetDescription>These evaluations will on every row of the dataset.</SheetDescription>
-        </SheetHeader>
+        <div className="flex flex-col gap-6">
+          <SheetHeader>
+            <SheetTitle>{items.name}</SheetTitle>
+            <SheetDescription>{items.detail_desc}</SheetDescription>
+          </SheetHeader>
+          <Separator />
 
-        {/* <Link href="#" className="ml-10 -mb-6 text-blue-500">
-          + Add an evaluation
-        </Link> */}
-        <p className="ml-10 -mb-6 text-red-500">Up to 5. To add one, remove one.</p>
-        <div
-          className="grid gap-4 py-4 custom-scrollbar overflow-y-scroll max-h-[400px] p-2"
-          style={{ maxHeight: "calc(100% - 200px)" }}
-        >
-          {test_API_Data.map((items, idx) => {
-            return (
-              <Card key={idx}>
-                <CardHeader>
-                  <div className="flex justify-between">
-                    <div className="flex gap-2 items-center">
-                      <Button
-                        asChild
-                        variant="link"
-                        size="smIcon"
-                        className="text-black cursor-pointer"
-                        onClick={async () => {
-                          setAddress(items.address);
-                          setAddressName(items.name);
-                          handleSubmit(items.address);
-                        }}
-                      >
-                        <Play strokeWidth={1} />
+          <div className="flex flex-col gap-4">
+            <p>Inputs :</p>
+            <div className="flex flex-wrap gap-2">
+              {inputs.map((item, idx) => (
+                <Badge variant="secondary" key={idx}>
+                  {item}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          <Separator />
+
+          <p>Outputs :</p>
+          <div className="flex flex-wrap gap-2">
+            {outputs.map((item, idx) => (
+              <Badge variant="secondary" className={cn(idx === 0 && "bg-yellow-400")} key={idx}>
+                {item}
+              </Badge>
+            ))}
+          </div>
+
+          <Separator />
+
+          <div className="flex flex-col gap-4 ">
+            <p>Configuration Parameters : </p>
+            {hasFailureThreshold && (
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between">
+                  <p className="text-sm">Failure Threshold :</p>
+                  <p className="text-sm">{failureThreshold}</p>
+                </div>
+                <Slider
+                  onValueChange={handleFailureThresholdChange}
+                  defaultValue={[defaultFailureThreshold]}
+                  max={1}
+                  min={0}
+                  step={0.1}
+                />
+              </div>
+            )}
+
+            {hasKeywords && (
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between">
+                  <p className="text-sm">Keywords :</p>
+                </div>
+                {keywords.map((keyword, index) => (
+                  <div key={index} className="flex gap-2">
+                    <Input
+                      value={keyword}
+                      onChange={e => handleKeywordChange(index, e.target.value)}
+                      className="flex-1"
+                    />
+                    {keywords.length > 1 && (
+                      <Button onClick={() => handleRemoveKeyword(index)} variant="destructive">
+                        Remove
                       </Button>
-
-                      <CardTitle className="text-xl">{items.name}</CardTitle>
-                    </div>
-
-                    <Button asChild variant="link" size="smIcon" className="text-red-500 cursor-pointer">
-                      <CircleMinus strokeWidth={1} />
-                    </Button>
+                    )}
                   </div>
-                  <CardDescription>{items.desc}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex justify-between">
-                    <div className="flex gap-2">
-                      {items.input.map((item, idx) => (
-                        <Badge variant="secondary" key={idx}>
-                          {item}
-                        </Badge>
-                      ))}
-                      <Badge variant="destructive">{items.llm}</Badge>
-                    </div>
-                    {/* <Input type="number" min="0" max="1" step="0.1" defaultValue="0.5" className="w-20" /> */}
-
-                    <Settings strokeWidth={1} />
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                ))}
+                {keywords.length < 6 && (
+                  <Button className="w-40" onClick={handleAddKeyword}>
+                    Add Keyword
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
+
         <SheetFooter>
-          <SheetClose asChild>
-            <Button className="w-full" type="submit">
-              Run Evaluations
-            </Button>
-          </SheetClose>
+          <Button onClick={handleSaveSetting} className="w-full" type="submit">
+            Save Setting & Back to Evaluations
+          </Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>
   );
 };
 
-export default EvaluateSheet;
+export default EvaluateDetailSheet;

@@ -1,4 +1,4 @@
-export const test_dataset_1 = [
+export const test_dataset = [
   {
     id: 1,
     query: "",

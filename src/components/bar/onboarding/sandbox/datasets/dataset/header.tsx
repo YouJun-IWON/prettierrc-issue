@@ -11,10 +11,9 @@ import { useSheet } from "@/store/useSheetStore";
 
 interface HeaderProps {
   id: string;
-  dataset: any;
 }
 
-const Header = ({ id, dataset }: HeaderProps) => {
+const Header = ({ id }: HeaderProps) => {
   const pathName = usePathname();
 
   const { onOpen } = useSheet();
@@ -42,7 +41,7 @@ const Header = ({ id, dataset }: HeaderProps) => {
         </Button>
 
         <Button
-          onClick={() => onOpen("showEvalTool", { dataset })}
+          onClick={() => onOpen("showEvalTool")}
           size="sm"
           variant="outline"
           className="h-8 gap-1 text-purple-600"

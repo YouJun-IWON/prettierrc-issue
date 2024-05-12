@@ -1,9 +1,12 @@
+import { TestAPIType, TestDatasetType } from "@/validation/testSchema";
 import { create } from "zustand";
 
-export type SheetType = "showEvalTool";
+export type SheetType = "showEvalTool" | "showChooseEvalTool" | "showDetailEvalTool";
 
 interface SheetData {
-  dataset?: any;
+  dataset?: TestDatasetType;
+  apiAddress?: string;
+  items?: TestAPIType;
 }
 
 interface SheetStore {

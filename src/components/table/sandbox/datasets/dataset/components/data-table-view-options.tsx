@@ -14,9 +14,10 @@ import { useEffect, useState } from "react";
 
 interface DataTableViewOptionsProps<TData> {
   table: Table<TData>;
+  columns: any;
 }
 
-export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
+export function DataTableViewOptions<TData>({ table, columns }: DataTableViewOptionsProps<TData>) {
   const [columnVisibility, setColumnVisibility] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
       );
 
     setColumnVisibility(initialColumnVisibility);
-  }, [table]);
+  }, [table, columns]);
 
   const handleColumnToggle = (columnId: string, value: boolean) => {
     const column = table.getColumn(columnId);

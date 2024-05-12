@@ -19,7 +19,7 @@ import {
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 import { DataTablePagination } from "./components/data-table-pagination";
-import { useDatasetsTable } from "@/store/useDatasetsTable";
+import { useDatasetsTable } from "@/store/useDatasetsTableStore";
 import { useRouter } from "next/navigation";
 import { dataSchema } from "./data/schema";
 

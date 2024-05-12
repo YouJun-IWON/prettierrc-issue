@@ -2,17 +2,18 @@ import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
 
 import { useEffect, useState } from "react";
-import { useDatasetTable } from "@/store/useDatasetTable";
+import { useDatasetTable } from "@/store/useDatasetTableStore";
 
 export function DataTableToolbar() {
   const { table } = useDatasetTable();
+  const { columns } = useDatasetTable();
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     if (table) {
       table.getColumn("query")?.setFilterValue(searchTerm);
     }
-  }, [searchTerm, table]);
+  }, [searchTerm, table, columns]);
 
   if (!table) return null;
 
@@ -25,7 +26,7 @@ export function DataTableToolbar() {
           onChange={event => setSearchTerm(event.target.value)}
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        <DataTableViewOptions table={table} />
+        <DataTableViewOptions table={table} columns={columns} />
       </div>
     </div>
   );

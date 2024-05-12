@@ -47,7 +47,7 @@ export const test_dataset_1 = [
     query: "Given this paragraph, what is the top speed of a Kia Stinger?",
     context:
       "Kia claims that the Stinger accelerates from zero to 100 km/h (62 mph) in 7.7, 6 and 4.9 seconds for the 2.2-liter diesel, 2.0-liter petrol and 3.3-liter petrol respectively. Schreyer reportedly drove a pre-production Stinger GT at a top speed of 269 km/h (167 mph) on the Autobahn.\n\nDuring a test by Car and Driver, an all-wheel-drive U.S. spec GT 3.3T with Michelin Pilot Sport 4 tires achieved 0\u201360 mph (0\u201397 km/h) in 4.6 seconds on the track, reached 0.91 g on the skidpad and was able to stop from 70 mph (113 km/h) in 164 feet (50 m). According to this publication, the U.S. model's top speed is governed at 167 mph (269 km/h) per Kia specs. In tests conducted by Motor Trend, the four-cylinder U.S. spec Stinger 2.0 RWD on Bridgestone Potenza tires reached 60 mph (97 km/h) in 6.6 seconds, completed the 1\u20444-mile (0.4 km) run in 15 seconds and stopped from 60 mph (97 km/h) in 126 feet (38 m). The average lateral acceleration recorded in track testing was 0.85 g.",
-    response: "The top speed of a Kia Stinger is 269km/h (167mph) according to this text.",
+    response: "The top speed of a  is 269km/h (167mph) according to this text.",
     expected: "",
   },
 ];
