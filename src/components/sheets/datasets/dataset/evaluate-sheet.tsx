@@ -31,9 +31,9 @@ const EvaluateSheet = () => {
 
   const { setAddress, setAddressName } = useDatasetTable();
   const { dataset } = useTestDatasetStore();
-  const { configs, updateConfig, setConfigs } = useTestAPIConfigsStore();
+  const { configs } = useTestAPIConfigsStore();
 
-  const { mutate: sendData, isPending } = useEvaluationServer();
+  const { mutate: sendData } = useEvaluationServer();
   const { active_API, setDefault_API, addToActive, removeFromActive } = useApiStore();
 
   useEffect(() => {

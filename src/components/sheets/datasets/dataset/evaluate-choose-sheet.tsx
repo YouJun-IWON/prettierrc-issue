@@ -1,25 +1,17 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Badge } from "@/components/ui/badge";
-import { CircleMinus, CirclePlus, Play, Settings } from "lucide-react";
+import { CirclePlus } from "lucide-react";
 import { test_API_Data } from "@/test/api";
 import { useSheet } from "@/store/useSheetStore";
 
 import useApiStore from "@/store/useEvaluationStore";
 
 const EvaluateChooseSheet = () => {
-  const { onOpen, isOpen, onClose, type, data } = useSheet();
+  const { onOpen, isOpen, onClose, type } = useSheet();
   const isModalOpen = isOpen && type === "showChooseEvalTool";
   const { default_API, active_API, addToActive } = useApiStore();
 

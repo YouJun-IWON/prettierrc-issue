@@ -13,7 +13,7 @@ const page = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     setColumns(originalColumns);
-  }, [originalColumns, setColumns]);
+  }, [setColumns]);
 
   useEffect(() => {
     setDataset(test_dataset_1);
