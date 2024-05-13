@@ -1,5 +1,3 @@
-import { ModeToggle } from "@/components/global/mode-toggle";
-
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -23,8 +21,11 @@ const Navigation = () => {
         </ul>
       </nav>
       <aside className="flex gap-2 items-center">
-        <ModeToggle />
-        <Button asChild>
+        {/* <ModeToggle /> */}
+        <Button
+          asChild
+          className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-cyan-400 bg-[linear-gradient(110deg,#7dd3fc,45%,#a5f3fc,55%,#7dd3fc)] bg-[length:200%_100%] px-6 font-medium text-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-cyan-50 "
+        >
           <Link href="/onboarding/sandbox/datasets">Show Demo</Link>
         </Button>
       </aside>

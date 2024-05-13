@@ -78,7 +78,7 @@ export const test_API_Data = [
     llm: "gpt-3.5-turbo",
   },
   {
-    name: "Openai Content Moderation",
+    name: "Content Moderation",
     address: "/openai-content-moderation",
     desc: "Checks if the context contains enough information to answer the user's query",
     detail_desc:
