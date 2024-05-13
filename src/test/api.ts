@@ -43,7 +43,7 @@ export const test_API_Data = [
     desc: "Checks if the context contains enough information to answer the user's query",
     detail_desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
-    input: ["keywords", "response", "keywords"],
+    input: ["keywords", "response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
     llm: "gpt-3.5-turbo",
   },
@@ -53,7 +53,7 @@ export const test_API_Data = [
     desc: "Checks if the context contains enough information to answer the user's query",
     detail_desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
-    input: ["keywords", "response", "keywords"],
+    input: ["keywords", "response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
     llm: "gpt-3.5-turbo",
   },
