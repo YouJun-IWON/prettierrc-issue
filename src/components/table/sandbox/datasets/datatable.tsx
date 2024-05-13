@@ -87,6 +87,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
+                  className="cursor-pointer"
                   onClick={() => {
                     const data = dataSchema.parse(row.original);
                     router.push(`/onboarding/sandbox/datasets/${data.id}`);
