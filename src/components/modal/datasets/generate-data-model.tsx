@@ -177,13 +177,15 @@ const GenerateData = () => {
                           </Button>
                         </div>
 
-                        {isPending ? (
-                          <Loader />
-                        ) : (
-                          <Button className="w-full" type="submit">
-                            Submit
-                          </Button>
-                        )}
+                        <Button className="w-full" type="submit">
+                          {isPending ? (
+                            <div className="flex items-center gap-2">
+                              <Loader /> Generating...
+                            </div>
+                          ) : (
+                            "Submit"
+                          )}
+                        </Button>
                       </form>
                     </Form>
                   </CardContent>
