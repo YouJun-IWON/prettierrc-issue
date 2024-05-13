@@ -1,4 +1,5 @@
 import { useDatasetTable } from "@/store/useDatasetTableStore";
+import { useModal } from "@/store/useModalStore";
 import addLoadingColumn from "@/utils/addLoadingColumn";
 
 import { useMutation } from "@tanstack/react-query";
@@ -6,6 +7,7 @@ import { CircleCheck, CircleX } from "lucide-react";
 
 const useEvaluationServer = (): { mutate: any; isPending: any } => {
   const { address, addressName, addColumns, columns, setColumns } = useDatasetTable();
+  const { onOpen } = useModal();
 
   return useMutation({
     mutationFn: async (result: any) => {
@@ -37,8 +39,15 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
             cell: (info: any) => {
               const rowIndex = info.row.index;
               const failedValue = data[rowIndex]?.failed;
+              const api_result = data[rowIndex];
+
               return (
-                <div className="flex items-center justify-center">
+                <div
+                  className="flex items-center cursor-pointer justify-center"
+                  onClick={() => {
+                    onOpen("showAPIResult", { api_result });
+                  }}
+                >
                   {failedValue ? (
                     <CircleX className="text-red-500" width={50} height={50} />
                   ) : (

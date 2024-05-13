@@ -80,7 +80,6 @@ const useSendData = (
   };
 
   return result;
-  return null;
 };
 
 export default useSendData;

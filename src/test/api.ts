@@ -7,7 +7,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["query", "response", "failure_threshold"],
     output: ["passed / failed", "grade_reason", "runtime", "model", "conversation_coherence"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Conversation Resolution Evaluation",
@@ -45,7 +45,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["keywords", "response", "keywords"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Contains Link",
@@ -55,7 +55,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["keywords", "response", "keywords"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Prompt Injection Evaluation",
@@ -65,7 +65,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Pii Detection",
@@ -75,7 +75,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Openai Content Moderation",
@@ -85,7 +85,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Gibberish Text Evaluation",
@@ -95,7 +95,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Sensitive Topics Evaluation",
@@ -105,7 +105,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Safe For Work Text Evaluation",
@@ -115,7 +115,7 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response"],
     output: ["passed / failed", "grade_reason", "runtime", "model"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
   {
     name: "Similarity Evaluation",
@@ -125,6 +125,6 @@ export const test_API_Data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response", "expected", "failure_threshold"],
     output: ["passed / failed", "grade_reason", "runtime", "model", "similarity_score"],
-    llm: "gpt-4-turbo",
+    llm: "gpt-3.5-turbo",
   },
 ];

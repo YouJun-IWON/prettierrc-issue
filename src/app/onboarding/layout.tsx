@@ -1,4 +1,5 @@
 import NavbarOnboarding from "@/components/bar/onboarding/navbar";
+import { ModalProvider } from "@/providers/modal-provider";
 
 import { SheetProvider } from "@/providers/sheet-provider";
 
@@ -14,9 +15,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <main>
       <NavbarOnboarding />
 
-      <SheetProvider />
-
       {children}
+      <SheetProvider />
+      <ModalProvider />
     </main>
   );
 };

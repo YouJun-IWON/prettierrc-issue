@@ -25,7 +25,7 @@ const Navigation = () => {
       <aside className="flex gap-2 items-center">
         <ModeToggle />
         <Button asChild>
-          <Link href="/onboarding">Show Demo</Link>
+          <Link href="/onboarding/sandbox/datasets">Show Demo</Link>
         </Button>
       </aside>
     </div>
