@@ -32,6 +32,8 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
       //! 여기서 결과값에 따른 Column row 데이터 수정
 
       // data[].failed 값으로 열 데이터 업데이트
+      //! 지금..
+
       const updatedColumns = columns.map(column => {
         if (column.id === addressName) {
           return {
@@ -62,8 +64,6 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
       });
 
       setColumns(updatedColumns);
-      // setTimeout(() => {
-      // }, 10);
     },
     onError: () => {
       const updatedColumns = columns.map(column => {

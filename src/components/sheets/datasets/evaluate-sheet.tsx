@@ -42,6 +42,10 @@ const EvaluateSheet = () => {
     addToActive(firstFiveAPIs);
   }, []);
 
+  const handleRemoveFromActive = (api: (typeof test_API_Data)[number]) => {
+    removeFromActive(api);
+  };
+
   const handleSubmit = (address: string, addressName: string) => {
     const result = useSendData(dataset, address, configs, addressName);
 
@@ -55,9 +59,28 @@ const EvaluateSheet = () => {
     return null;
   };
 
-  const handleRemoveFromActive = (api: (typeof test_API_Data)[number]) => {
-    removeFromActive(api);
+  const handleSubmitAllAPI = (active_API: any) => {
+    //지금도 하나만 됨... => 이거 백엔드에서 만들어줘야하는건가..?
+    active_API.forEach((api: any) => {
+      setAddress(api.address);
+      setAddressName(api.name);
+      const result = useSendData(dataset, api.address, configs, api.name);
+
+      console.log("result", result);
+
+      if (!result) return;
+
+      sendData(result);
+    });
+
+    onClose();
+
+    //sendData(result);
+
+    return null;
   };
+
+  console.log("active_API", active_API);
 
   return (
     <Sheet open={isModalOpen} onOpenChange={onClose}>
@@ -150,8 +173,14 @@ const EvaluateSheet = () => {
             {active_API.length >= 6 ? (
               <p className="w-full text-center text-red-500">Up to five simultaneous assessments are available. </p>
             ) : (
-              <Button className="w-full" type="submit">
-                Run Evaluations
+              <Button
+                className="w-full "
+                onClick={() => {
+                  handleSubmitAllAPI(active_API);
+                }}
+                disabled
+              >
+                Run All Evaluations
               </Button>
             )}
           </SheetClose>
