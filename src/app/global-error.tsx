@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  console.error(error);
   return (
     <html>
       <body className="flex flex-col items-center justify-center h-full">

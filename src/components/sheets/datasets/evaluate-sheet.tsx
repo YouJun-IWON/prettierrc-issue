@@ -180,7 +180,7 @@ const EvaluateSheet = () => {
                 }}
                 disabled
               >
-                Run All Evaluations
+                Tap the triangle on each evaluation model card.
               </Button>
             )}
           </SheetClose>
