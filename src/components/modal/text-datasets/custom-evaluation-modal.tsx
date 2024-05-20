@@ -1,13 +1,8 @@
 "use client";
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 import React from "react";
 
@@ -22,6 +17,8 @@ const CustomEvaluation = () => {
   const { isOpen, onClose, type } = useModal();
   const isModalOpen = isOpen && type === "customEvaluation";
   const { setType, type: generateType } = useCreateEval();
+
+  console.log("generateType", generateType);
 
   return (
     <>

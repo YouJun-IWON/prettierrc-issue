@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { z } from "zod";
-import { useCreateEval } from "@/store/useCreateEvalStore";
+
 import { useFieldArray, useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Loader from "@/components/global/Loader";
-import { cn } from "@/lib/utils";
 import useCreateEvalAPI from "@/hooks/createEvaluation/useCreateEval";
 import { useEffect, useState } from "react";
 
@@ -25,7 +24,7 @@ const GenerateDataFormSchema = z.object({
 });
 
 const Classification = () => {
-  const { mutate: sendData, isPending } = useCreateEvalAPI();
+  //const { mutate: sendData, isPending } = useCreateEvalAPI();
   const form = useForm<z.infer<typeof GenerateDataFormSchema>>({
     resolver: zodResolver(GenerateDataFormSchema),
     defaultValues: {
@@ -127,7 +126,7 @@ const Classification = () => {
               )}
             </div>
             {duplicateError && <p className="text-red-500">{duplicateError}</p>}
-            <Button className="w-full" type="submit" disabled={!!duplicateError}>
+            {/* <Button className="w-full" type="submit" disabled={!!duplicateError}>
               {isPending ? (
                 <div className="flex items-center gap-2">
                   <Loader /> Creating...
@@ -135,7 +134,7 @@ const Classification = () => {
               ) : (
                 "Submit"
               )}
-            </Button>
+            </Button> */}
           </form>
         </Form>
       </CardContent>
