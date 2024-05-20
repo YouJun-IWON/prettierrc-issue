@@ -7,9 +7,7 @@ import { z } from "zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Loader from "@/components/global/Loader";
 
-import useCreateEvalAPI from "@/hooks/createEvaluation/useCreateEval";
 import { useEffect, useState } from "react";
 
 const GenerateDataFormSchema = z.object({

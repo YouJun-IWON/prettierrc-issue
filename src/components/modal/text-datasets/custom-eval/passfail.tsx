@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -7,9 +6,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Loader from "@/components/global/Loader";
 
-import useCreateEvalAPI from "@/hooks/createEvaluation/useCreateEval";
 import { useState } from "react";
 
 const GenerateDataFormSchema = z.object({
