@@ -1,6 +1,6 @@
 //! 들어온 API 에 따라 데이터를 정렬한다.
 
-import { TestAPIConfigsType, TestDatasetItemType } from "@/validation/testSchema";
+import { TestAPIConfigsType, TestDatasetItemType } from "@/validation/test-schema";
 
 const useSendData = (
   targetData: TestDatasetItemType[],

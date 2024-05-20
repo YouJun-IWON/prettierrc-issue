@@ -1,4 +1,4 @@
-import { Home, LineChart, Package } from "lucide-react";
+import { FileType, Home, Image } from "lucide-react";
 import { BarItem } from "@/components/bar/components/types";
 export const SIDEBAR_ITEMS: BarItem[] = [
   {
@@ -7,13 +7,13 @@ export const SIDEBAR_ITEMS: BarItem[] = [
     icon: <Home className="h-5 w-5" strokeWidth={1} />,
   },
   {
-    title: "Datasets",
-    path: "/onboarding/sandbox/datasets",
-    icon: <Package className="h-5 w-5" strokeWidth={1} />,
+    title: "Text Datasets",
+    path: "/onboarding/sandbox/text-datasets",
+    icon: <FileType className="h-5 w-5" strokeWidth={1} />,
   },
   {
-    title: "Analytics",
-    path: "/dashboard/sandbox/analytics",
-    icon: <LineChart className="h-5 w-5" strokeWidth={1} />,
+    title: "Image Datasets",
+    path: "/onboarding/sandbox/image-datasets",
+    icon: <Image className="h-5 w-5" strokeWidth={1} />,
   },
 ];

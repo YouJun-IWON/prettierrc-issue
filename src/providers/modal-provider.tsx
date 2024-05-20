@@ -1,7 +1,8 @@
 "use client";
 
-import ShowAPIResult from "@/components/modal/datasets/evaluate-result-model";
-import GenerateData from "@/components/modal/datasets/generate-data-model";
+import CustomEvaluation from "@/components/modal/text-datasets/custom-evaluation-modal";
+import ShowAPIResult from "@/components/modal/text-datasets/evaluate-result-modal";
+import GenerateData from "@/components/modal/text-datasets/generate-data-modal";
 import { useEffect, useState } from "react";
 
 export const ModalProvider = () => {
@@ -19,6 +20,7 @@ export const ModalProvider = () => {
     <>
       <ShowAPIResult />
       <GenerateData />
+      <CustomEvaluation />
     </>
   );
 };

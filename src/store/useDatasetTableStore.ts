@@ -1,7 +1,7 @@
 // useTableStore.ts
 import { create } from "zustand";
 import { Table, ColumnDef } from "@tanstack/react-table";
-import { Task } from "@/components/table/sandbox/datasets/dataset/data/schema";
+import { Task } from "@/validation/image-schema";
 
 interface DatasetTableState {
   table: Table<any> | null;

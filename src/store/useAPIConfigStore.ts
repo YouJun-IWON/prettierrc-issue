@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TestAPIConfigsType } from "@/validation/testSchema";
+import { TestAPIConfigsType } from "@/validation/test-schema";
 
 interface TestAPIConfigsStore {
   configs: TestAPIConfigsType;

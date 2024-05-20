@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type ModalType = "showAPIResult" | "generateData";
+export type ModalType = "showAPIResult" | "generateData" | "customEvaluation";
 
 interface ModalData {
   api_result?: any;

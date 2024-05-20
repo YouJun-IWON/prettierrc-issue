@@ -1,4 +1,4 @@
-import { TestAPIType, TestDatasetType } from "@/validation/testSchema";
+import { TestAPIType, TestDatasetType } from "@/validation/test-schema";
 import { create } from "zustand";
 
 export type SheetType = "showEvalTool" | "showChooseEvalTool" | "showDetailEvalTool";

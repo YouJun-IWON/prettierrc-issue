@@ -1,5 +1,5 @@
-import { test_dataset } from "@/test/dummyDataset";
-import { TestDatasetItemType } from "@/validation/testSchema";
+import { dummy_test_dataset } from "@/test/dummy-dataset";
+import { TestDatasetItemType } from "@/validation/test-schema";
 import { create } from "zustand";
 
 interface TestDatasetStore {
@@ -10,7 +10,7 @@ interface TestDatasetStore {
 }
 
 export const useTestDatasetStore = create<TestDatasetStore>((set, get) => ({
-  dataset: test_dataset,
+  dataset: dummy_test_dataset,
   setDataset: dataset => set({ dataset }),
   getDatasetById: id => get().dataset.find(item => item.id === id),
   updateDatasetItem: (id, updatedItem) =>

@@ -1,5 +1,5 @@
-import { DataTableColumnHeader } from "@/components/table/sandbox/datasets/dataset/components/data-table-column-header";
-import { Task } from "@/components/table/sandbox/datasets/dataset/data/schema";
+import { DataTableColumnHeader } from "@/components/table/sandbox/text-datasets/dataset/components/data-table-column-header";
+import { Task } from "@/validation/image-schema";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import { ColumnDef } from "@tanstack/react-table";
