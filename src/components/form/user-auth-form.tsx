@@ -17,6 +17,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   const handleLoginWithOAuth = (provider: "github" | "google") => {
+    setIsLoading(true);
     const supabase = createClient();
 
     supabase.auth.signInWithOAuth({
@@ -25,6 +26,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         redirectTo: window.location.origin + "/auth/callback?next=/",
       },
     });
+
+    setIsLoading(false);
   };
 
   // async function onSubmit(event: React.SyntheticEvent) {
