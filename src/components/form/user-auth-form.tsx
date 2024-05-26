@@ -27,14 +27,14 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     });
   };
 
-  async function onSubmit(event: React.SyntheticEvent) {
-    event.preventDefault();
-    setIsLoading(true);
+  // async function onSubmit(event: React.SyntheticEvent) {
+  //   event.preventDefault();
+  //   setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
+  // }
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
