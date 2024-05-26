@@ -8,10 +8,10 @@ const page = () => {
       <div className="p-10 pb-16 grid grid-cols-5 w-full">
         <section className="col-span-4">
           <div className="space-y-0.5">
-            <h2 className="text-2xl font-bold tracking-tight">Welcome to AIM Guard 👋</h2>
+            <h2 className="text-2xl font-bold tracking-tight">Welcome to AIM Dashboard 👋</h2>
             <p className="text-muted-foreground">
-              AIM Guard is a full-stack AI observability platform that helps you monitor, evaluate and improve your AI
-              models.
+              AIM Dashboard is a full-stack AI observability platform that helps you monitor, evaluate and improve your
+              AI models.
             </p>
           </div>
           <Separator className="my-6" />

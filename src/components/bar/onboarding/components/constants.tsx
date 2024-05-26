@@ -13,8 +13,8 @@ export const NAVBAR_ITEMS: BarItem[] = [
     icon: <PackageOpen strokeWidth={1} width="20" height="20" />,
   },
   {
-    title: "Your Dashboard",
-    path: "/dashboard",
+    title: "My Dashboard",
+    path: "/onboarding/my-dashboard",
     icon: <Box strokeWidth={1} width="20" height="20" />,
   },
 ];
