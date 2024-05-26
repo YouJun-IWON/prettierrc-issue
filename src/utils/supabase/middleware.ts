@@ -1,5 +1,6 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { authRoutes, DEFAULT_LOGIN_REDIRECT } from "./routes";
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({
@@ -54,7 +55,26 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  await supabase.auth.getUser();
+  const { data } = await supabase.auth.getUser();
+
+  const url = new URL(request.url);
+
+  //const isPublicRoutes = publicRoutes.includes(url.pathname);
+  const isAuthRoute = authRoutes.includes(url.pathname);
+
+  if (isAuthRoute) {
+    if (!data.user) {
+      return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, request.url));
+    }
+    return response;
+  }
+
+  // if (!isPublicRoutes) {
+  //   if (!data.user) {
+  //     return NextResponse.redirect(new URL("/auth"));
+  //   }
+  //   return response;
+  // }
 
   return response;
 }

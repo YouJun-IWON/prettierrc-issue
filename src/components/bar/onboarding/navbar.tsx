@@ -7,9 +7,14 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { NAVBAR_ITEMS } from "./components/constants";
 import { buttonVariants } from "../../ui/button";
+import useUser from "@/hooks/getProfileData/useUser";
+import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import UserIcon from "./components/user";
 
 const NavbarOnboarding = () => {
   const pathname = usePathname();
+
+  const { isFetching, data } = useUser();
 
   return (
     <main className="sticky inset-x-0 top-0 z-50 w-full transition-all border-b border-gray-300">
@@ -47,12 +52,34 @@ const NavbarOnboarding = () => {
           >
             Need Help?
           </Link>
-          <Link
-            href="/auth"
-            className=" px-5 py-2 rounded-full bg-zinc-600 flex items-center justify-center text-center hover:opacity-85"
-          >
-            <span className="font-semibold text-sm text-white">Login </span>
-          </Link>
+
+          {isFetching ? (
+            <></>
+          ) : data?.id ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="flex  rounded-full bg-orange-400 items-center justify-center text-center hover:opacity-85 hover:cursor-pointer">
+                  <Image
+                    src={data.image_url ? data.image_url : "/assets/profile.svg"}
+                    width={40}
+                    height={40}
+                    alt="profile image"
+                    className="rounded-full border border-1 border-amber-600"
+                  />
+
+                  <p className="px-4">{data.display_name}</p>
+                </div>
+              </DropdownMenuTrigger>
+              <UserIcon />
+            </DropdownMenu>
+          ) : (
+            <Link
+              href="/auth"
+              className=" px-5 py-2 rounded-full bg-zinc-600 flex items-center justify-center text-center hover:opacity-85"
+            >
+              <span className="font-semibold text-sm text-white">Login </span>
+            </Link>
+          )}
         </div>
       </section>
     </main>
