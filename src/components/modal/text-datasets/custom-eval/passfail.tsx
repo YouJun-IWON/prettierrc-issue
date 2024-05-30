@@ -39,7 +39,7 @@ const Classification = () => {
       setDuplicateError("True description and false description cannot be the same.");
     } else {
       setDuplicateError(null);
-      console.log(data);
+
       //const transformedData = transformData(data);
       //console.log("generate_data", transformedData);
       //sendData(transformedData);

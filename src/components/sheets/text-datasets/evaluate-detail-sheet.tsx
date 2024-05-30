@@ -111,7 +111,7 @@ const EvaluateDetailSheet = () => {
         setConfigs([...configs, newConfig]);
       }
     }
-    console.log("configs", configs);
+
     onOpen("showEvalTool");
   };
 

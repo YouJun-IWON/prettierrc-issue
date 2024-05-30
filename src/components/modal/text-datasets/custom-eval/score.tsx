@@ -66,7 +66,7 @@ const Classification = () => {
       setDuplicateError(`Duplicate score values found: ${duplicates.join(", ")}`);
     } else {
       setDuplicateError(null);
-      console.log(data);
+
       //const transformedData = transformData(data);
       //console.log("generate_data", transformedData);
       //sendData(transformedData);

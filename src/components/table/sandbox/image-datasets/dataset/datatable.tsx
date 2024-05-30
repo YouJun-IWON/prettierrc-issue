@@ -97,13 +97,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     return (
                       <TableCell key={cell.id}>
                         {isUrl(cellValue) ? (
-                          <Image
-                            width={200}
-                            height={200}
-                            src={cellValue}
-                            alt="Test-Image"
-                            className="max-w-[200px] max-h-[200px]"
-                          />
+                          <Image width={250} height={200} src={cellValue} alt="Test-Image" />
                         ) : (
                           flexRender(cell.column.columnDef.cell, cell.getContext())
                         )}

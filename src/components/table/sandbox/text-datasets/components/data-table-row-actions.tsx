@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { labels } from "./data";
-import { dataSchema } from "../../../../../validation/text-folder-schema";
+import { dataSchema } from "../../../../../validation/test-folder-schema";
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;

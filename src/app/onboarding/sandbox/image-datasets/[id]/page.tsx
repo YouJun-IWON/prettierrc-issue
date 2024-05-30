@@ -2,7 +2,7 @@
 import Header from "@/components/bar/onboarding/sandbox/image-datasets/dataset/header";
 import { DataTable } from "@/components/table/sandbox/image-datasets/dataset/datatable";
 
-import { columns as originalColumns } from "@/components/table/sandbox/text-datasets/dataset/components/columns";
+import { columns as originalColumns } from "@/components/table/sandbox/image-datasets/dataset/components/columns";
 import { useEffect } from "react";
 import { useDatasetTable } from "@/store/useDatasetTableStore";
 import { useTestDatasetStore } from "@/store/useTestDatasetStore";
@@ -22,7 +22,7 @@ const page = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="h-screen flex flex-col">
-      <Header id={params.id} />
+      <Header id={params.id} dataset={dataset} />
       <div className="flex-grow overflow-y-auto custom-scrollbar py-4 pl-14 bg-muted/40">
         <main className="mb-20 items-start p-4 ">
           <DataTable data={dataset} columns={columns} />

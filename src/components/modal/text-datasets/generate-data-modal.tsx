@@ -74,8 +74,6 @@ const GenerateData = () => {
   function onSubmit(data: z.infer<typeof GenerateDataFormSchema>) {
     const transformedData = transformData(data);
 
-    console.log("generate_data", transformedData);
-    console.log("generateType", generateType);
     sendData(transformedData);
   }
 

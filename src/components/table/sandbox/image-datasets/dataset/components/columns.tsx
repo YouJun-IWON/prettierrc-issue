@@ -40,7 +40,7 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => {
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] h-[100px] overflow-y-auto custom-scrollbar font-medium">
+          <span className="max-w-[500px] h-[164px] overflow-y-auto custom-scrollbar font-medium">
             {row.getValue("query")}
           </span>
         </div>
@@ -56,7 +56,7 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] overflow-y-auto custom-scrollbar  h-[100px]  font-medium ">
+          <span className="max-w-[500px] overflow-y-auto custom-scrollbar  h-[164px]  font-medium ">
             {truncatedContext}
           </span>
         </div>
@@ -72,7 +72,7 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[100px]  font-medium">
+          <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[164px]  font-medium">
             {truncatedContext}
           </span>
         </div>
@@ -88,7 +88,7 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex space-x-2">
-          <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[100px]  font-medium">
+          <span className="max-w-[500px] overflow-y-auto custom-scrollbar h-[164px]  font-medium">
             {truncatedContext}
           </span>
         </div>

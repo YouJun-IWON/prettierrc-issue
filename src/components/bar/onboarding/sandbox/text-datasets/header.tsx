@@ -7,9 +7,17 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { DataTableToolbar } from "@/components/table/sandbox/text-datasets/components/data-table-toolbar";
+import { TestDatasetListType } from "@/validation/test-folder-schema";
+import { downloadCSV } from "@/utils/csv-download/downloadCSV";
 
-const Header = () => {
+interface HeaderProps {
+  datasetList: TestDatasetListType;
+}
+
+const Header = ({ datasetList: dataset }: HeaderProps) => {
   const pathName = usePathname();
+
+  const title = "";
 
   return (
     <header
@@ -24,7 +32,14 @@ const Header = () => {
       </div>
 
       <div className="ml-auto flex items-center gap-2">
-        <Button size="sm" variant="outline" className="h-8 gap-1">
+        <Button
+          size="sm"
+          variant="outline"
+          className="h-8 gap-1"
+          onClick={() => {
+            downloadCSV({ dataset, title });
+          }}
+        >
           <File className="h-3.5 w-3.5" />
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Export</span>
         </Button>

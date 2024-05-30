@@ -21,7 +21,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DataTablePagination } from "./components/data-table-pagination";
 import { useDatasetsTable } from "@/store/useDatasetsTableStore";
 import { useRouter } from "next/navigation";
-import { dataSchema } from "../../../../validation/text-folder-schema";
+import { dataSchema } from "../../../../validation/test-folder-schema";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

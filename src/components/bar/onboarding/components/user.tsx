@@ -11,17 +11,23 @@ import {
 import React from "react";
 import { createClient } from "@/utils/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { authRoutes } from "@/utils/supabase/routes";
 
 const UserIcon = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
+
+  const pathname = usePathname();
 
   const handleLogout = async () => {
     const supabase = createClient();
     queryClient.clear();
     await supabase.auth.signOut();
     router.refresh();
+    if (authRoutes.includes(pathname)) {
+      router.replace("/auth?next=" + pathname);
+    }
   };
 
   return (

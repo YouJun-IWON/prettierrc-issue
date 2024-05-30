@@ -38,11 +38,9 @@ const useCreateEvalAPI = (): { mutate: any; isPending: any } => {
       return response.json();
     },
     onSuccess(data) {
-      console.log(data);
       if (!data) throw new Error("No data found");
 
       const transformedData = transformData(data);
-      console.log("transformedData", transformedData);
 
       setDataset([...dataset, ...transformedData]);
 

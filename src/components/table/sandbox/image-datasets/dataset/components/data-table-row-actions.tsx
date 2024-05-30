@@ -21,8 +21,6 @@ interface DataTableRowActionsProps<TData> {
 export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TData>) {
   const task = dataSchema.parse(row.original);
 
-  console.log(task);
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

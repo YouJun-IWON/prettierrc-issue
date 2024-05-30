@@ -9,16 +9,22 @@ import { Button } from "@/components/ui/button";
 import { DataTableToolbar } from "@/components/table/sandbox/text-datasets/dataset/components/data-table-toolbar";
 import { useSheet } from "@/store/useSheetStore";
 import { useModal } from "@/store/useModalStore";
+import { TestDatasetType } from "@/validation/test-schema";
+import { downloadCSV } from "@/utils/csv-download/downloadCSV";
+import { getTitleById } from "@/utils/csv-download/getTitleById";
 
 interface HeaderProps {
   id: string;
+  dataset: TestDatasetType;
 }
 
-const Header = ({ id }: HeaderProps) => {
+const Header = ({ id, dataset }: HeaderProps) => {
   const pathName = usePathname();
 
   const { onOpen } = useSheet();
   const { onOpen: modalOpen } = useModal();
+
+  const title = getTitleById(Number(id));
 
   return (
     <header
@@ -33,7 +39,14 @@ const Header = ({ id }: HeaderProps) => {
       </div>
 
       <div className="ml-auto flex items-center gap-2">
-        <Button size="sm" variant="outline" className="h-8 gap-1">
+        <Button
+          size="sm"
+          variant="outline"
+          className="h-8 gap-1"
+          onClick={() => {
+            downloadCSV({ dataset, title });
+          }}
+        >
           <File className="h-3.5 w-3.5" />
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">Export</span>
         </Button>

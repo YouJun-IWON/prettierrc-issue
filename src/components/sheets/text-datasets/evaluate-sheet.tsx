@@ -49,8 +49,6 @@ const EvaluateSheet = () => {
   const handleSubmit = (address: string, addressName: string) => {
     const result = useSendData(dataset, address, configs, addressName);
 
-    console.log("result", result);
-
     if (!result) return;
     onClose();
 
@@ -66,8 +64,6 @@ const EvaluateSheet = () => {
       setAddressName(api.name);
       const result = useSendData(dataset, api.address, configs, api.name);
 
-      console.log("result", result);
-
       if (!result) return;
 
       sendData(result);
@@ -79,8 +75,6 @@ const EvaluateSheet = () => {
 
     return null;
   };
-
-  console.log("active_API", active_API);
 
   return (
     <Sheet open={isModalOpen} onOpenChange={onClose}>

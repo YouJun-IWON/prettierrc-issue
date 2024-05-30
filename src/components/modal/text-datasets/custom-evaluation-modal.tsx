@@ -18,8 +18,6 @@ const CustomEvaluation = () => {
   const isModalOpen = isOpen && type === "customEvaluation";
   const { setType, type: generateType } = useCreateEval();
 
-  console.log("generateType", generateType);
-
   return (
     <>
       <Dialog open={isModalOpen} onOpenChange={onClose}>

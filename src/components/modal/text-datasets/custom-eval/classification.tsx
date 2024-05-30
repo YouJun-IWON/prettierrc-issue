@@ -60,7 +60,7 @@ const Classification = () => {
       setDuplicateError(`Duplicate category names found: ${duplicates.join(", ")}`);
     } else {
       setDuplicateError(null);
-      console.log(data);
+
       //const transformedData = transformData(data);
       //console.log("generate_data", transformedData);
       //sendData(transformedData);

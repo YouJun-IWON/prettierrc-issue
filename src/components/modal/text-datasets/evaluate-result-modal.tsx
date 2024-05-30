@@ -12,8 +12,6 @@ const ShowAPIResult = () => {
 
   const { api_result } = data;
 
-  console.log("api_result", api_result);
-
   if (!api_result) return;
 
   return (

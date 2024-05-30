@@ -27,7 +27,6 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
       addLoadingColumn({ addressName, addColumns });
     },
     onSuccess(data) {
-      console.log(data);
       if (!data) throw new Error("No data found");
       //! 여기서 결과값에 따른 Column row 데이터 수정
 
@@ -42,6 +41,7 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
               const rowIndex = info.row.index;
               const failedValue = data[rowIndex]?.failed;
               const api_result = data[rowIndex];
+              console.log("api_result", { api_result });
 
               return (
                 <div
