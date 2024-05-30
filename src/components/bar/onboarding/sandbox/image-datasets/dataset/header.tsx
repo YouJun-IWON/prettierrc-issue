@@ -1,16 +1,15 @@
 "use client";
 
-import { Bot, File, PencilRuler, PlusCircle, Zap } from "lucide-react";
+import { File, PlusCircle } from "lucide-react";
 
 import Breadcrumbset from "@/components/bar/components/breadcrumb";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { DataTableToolbar } from "@/components/table/sandbox/text-datasets/dataset/components/data-table-toolbar";
-import { useSheet } from "@/store/useSheetStore";
-import { useModal } from "@/store/useModalStore";
+
 import { TestDatasetType } from "@/validation/test-schema";
-import { convertToCSV } from "@/utils/csv-download/convertToCSV";
+
 import { downloadCSV } from "@/utils/csv-download/downloadCSV";
 import { getTitleById } from "@/utils/csv-download/getTitleById";
 
