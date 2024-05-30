@@ -59,7 +59,7 @@ export async function updateSession(request: NextRequest) {
 
   const url = new URL(request.url);
 
-  const isPublicRoutes = publicRoutes.includes(url.pathname);
+  //const isPublicRoutes = publicRoutes.includes(url.pathname);
   const isAuthRoute = authRoutes.includes(url.pathname);
 
   if (isAuthRoute) {

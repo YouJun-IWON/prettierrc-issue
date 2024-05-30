@@ -12,7 +12,6 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { dataSchema } from "../../../../../../validation/image-schema";
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;
