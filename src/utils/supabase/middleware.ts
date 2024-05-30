@@ -1,6 +1,6 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
-import { authRoutes, DEFAULT_LOGIN_REDIRECT, publicRoutes } from "./routes";
+import { authRoutes, DEFAULT_LOGIN_REDIRECT } from "./routes";
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({

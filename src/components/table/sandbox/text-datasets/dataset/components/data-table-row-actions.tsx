@@ -12,13 +12,16 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { dataSchema } from "@/validation/test-schema";
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;
 }
 
 export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TData>) {
-  // const task = dataSchema.parse(row.original);
+  const task = dataSchema.parse(row.original);
+
+  console;
 
   return (
     <DropdownMenu>
