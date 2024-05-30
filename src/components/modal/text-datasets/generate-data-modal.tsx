@@ -46,7 +46,7 @@ const GenerateDataFormSchema = z.object({
 const GenerateData = () => {
   const { isOpen, onClose, type } = useModal();
   const isModalOpen = isOpen && type === "generateData";
-  const { setType, type: generateType } = useGenerateData();
+  const { setType } = useGenerateData();
   const { mutate: sendData, isPending } = useGenerateServer();
 
   const form = useForm<z.infer<typeof GenerateDataFormSchema>>({

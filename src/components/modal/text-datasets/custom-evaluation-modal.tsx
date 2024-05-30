@@ -16,7 +16,7 @@ import Score from "./custom-eval/score";
 const CustomEvaluation = () => {
   const { isOpen, onClose, type } = useModal();
   const isModalOpen = isOpen && type === "customEvaluation";
-  const { setType, type: generateType } = useCreateEval();
+  const { setType } = useCreateEval();
 
   return (
     <>
