@@ -11,7 +11,7 @@ import { TestDatasetListType } from "@/validation/test-folder-schema";
 import { downloadCSV } from "@/utils/csv-download/downloadCSV";
 
 interface HeaderProps {
-  datasetList: TestDatasetListType;
+  datasetList?: TestDatasetListType;
 }
 
 const Header = ({ datasetList: dataset }: HeaderProps) => {
