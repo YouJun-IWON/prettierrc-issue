@@ -124,7 +124,13 @@ export const test_API_Data = [
     detail_desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl nec ultricies ultricies, nunc nisl ultricies nunc, nec ultricies nunc nisl nec nunc.",
     input: ["response", "expected", "failure_threshold"],
-    output: ["passed / failed", "grade_reason", "runtime", "model", "similarity_score"],
+    output: [
+      "passed / failed",
+      "grade_reason",
+      "runtime",
+      "model",
+      "similarity_score",
+    ],
     llm: "gpt-3.5-turbo",
   },
 ];

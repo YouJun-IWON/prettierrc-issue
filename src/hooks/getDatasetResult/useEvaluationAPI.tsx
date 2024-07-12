@@ -1,23 +1,27 @@
+import { useMutation } from "@tanstack/react-query";
+import { CircleCheck, CircleX } from "lucide-react";
+
 import { useDatasetTable } from "@/store/useDatasetTableStore";
 import { useModal } from "@/store/useModalStore";
 import addLoadingColumn from "@/utils/addLoadingColumn";
 
-import { useMutation } from "@tanstack/react-query";
-import { CircleCheck, CircleX } from "lucide-react";
-
 const useEvaluationServer = (): { mutate: any; isPending: any } => {
-  const { address, addressName, addColumns, columns, setColumns } = useDatasetTable();
+  const { address, addressName, addColumns, columns, setColumns } =
+    useDatasetTable();
   const { onOpen } = useModal();
 
   return useMutation({
     mutationFn: async (result: any) => {
-      const response = await fetch(`https://llm-eval.aim-intelligence.com${address}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `https://llm-eval.aim-intelligence.com${address}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(result),
         },
-        body: JSON.stringify(result),
-      });
+      );
       if (!response.ok) {
         throw new Error();
       }
@@ -53,7 +57,11 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
                   {failedValue ? (
                     <CircleX className="text-red-500" width={50} height={50} />
                   ) : (
-                    <CircleCheck className="text-blue-500" width={50} height={50} />
+                    <CircleCheck
+                      className="text-blue-500"
+                      width={50}
+                      height={50}
+                    />
                   )}
                 </div>
               );
@@ -70,7 +78,11 @@ const useEvaluationServer = (): { mutate: any; isPending: any } => {
         if (column.id === addressName) {
           return {
             ...column,
-            cell: () => <div className="flex items-center justify-center">Error occurred!</div>,
+            cell: () => (
+              <div className="flex items-center justify-center">
+                Error occurred!
+              </div>
+            ),
           };
         }
         return column;

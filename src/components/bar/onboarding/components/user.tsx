@@ -1,3 +1,8 @@
+import React from "react";
+
+import { usePathname, useRouter } from "next/navigation";
+
+import { useQueryClient } from "@tanstack/react-query";
 import { Cloud, CreditCard, LogOut, Settings, User, Users } from "lucide-react";
 
 import {
@@ -7,11 +12,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-
-import React from "react";
 import { createClient } from "@/utils/supabase/client";
-import { useQueryClient } from "@tanstack/react-query";
-import { usePathname, useRouter } from "next/navigation";
 import { authRoutes } from "@/utils/supabase/routes";
 
 const UserIcon = () => {

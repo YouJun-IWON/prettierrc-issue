@@ -1,4 +1,10 @@
 "use client";
+
+import React from "react";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,10 +12,6 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
 
 const Breadcrumbset = () => {
   const pathname = usePathname();
@@ -24,19 +26,22 @@ const Breadcrumbset = () => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/onboarding/sandbox">Supervisor</Link>
+            <Link href="/onboarding/aimred">Supervisor</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
 
         {segments.map((segment, index) => {
           const path = `/${segments.slice(0, index + 1).join("/")}`;
-          const capitalizedSegment = segment.charAt(0).toUpperCase() + segment.slice(1);
+          const capitalizedSegment =
+            segment.charAt(0).toUpperCase() + segment.slice(1);
           return (
             <React.Fragment key={segment}>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href={"/onboarding/sandbox" + path}>{capitalizedSegment}</Link>
+                  <Link href={"/onboarding/aimred" + path}>
+                    {capitalizedSegment}
+                  </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </React.Fragment>

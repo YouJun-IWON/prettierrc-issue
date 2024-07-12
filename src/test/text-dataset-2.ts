@@ -13,7 +13,8 @@ export const text_test_dataset_2 = [
     query: "Who painted the Mona Lisa?",
     context:
       "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci. Considered an archetypal masterpiece of the Italian Renaissance, it has been described as 'the best known, the most visited, the most written about, the most sung about, the most parodied work of art in the world'. The painting's novel qualities include the subject's enigmatic expression, the monumentality of the composition, the subtle modelling of forms, and the atmospheric illusionism. The painting is probably of the Italian noblewoman Lisa Gherardini, the wife of Francesco del Giocondo. It had been believed to have been painted between 1503 and 1506; however, Leonardo may have continued working on it as late as 1517. It was acquired by King Francis I of France and is now the property of the French Republic. It has been on permanent display at the Louvre in Paris since 1797.",
-    response: "The Mona Lisa was painted by the Italian artist Leonardo da Vinci.",
+    response:
+      "The Mona Lisa was painted by the Italian artist Leonardo da Vinci.",
     expected: "",
   },
   {
@@ -30,7 +31,8 @@ export const text_test_dataset_2 = [
     query: "Who wrote the novel 'Pride and Prejudice'?",
     context:
       "Pride and Prejudice is an 1813 romantic novel of manners written by Jane Austen. The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness. Its humour lies in its honest depiction of manners, education, marriage, and money during the Regency era in Great Britain. Mr Bennet of Longbourn estate has five daughters, but his property is entailed and can only be passed to a male heir. His wife also lacks an inheritance, so his family will be destitute upon his death. Thus it is imperative that at least one of the girls marry well to support the others, which is a motivation that drives the plot.",
-    response: "The novel 'Pride and Prejudice' was written by Jane Austen. It was first published in 1813.",
+    response:
+      "The novel 'Pride and Prejudice' was written by Jane Austen. It was first published in 1813.",
     expected: "",
   },
   {

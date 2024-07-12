@@ -27,7 +27,8 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
 
   console.log(payload);
 
-  const currentResponse = show_test_response_test[callCount % show_test_response_test.length];
+  const currentResponse =
+    show_test_response_test[callCount % show_test_response_test.length];
   callCount++;
 
   const stream = new ReadableStream({

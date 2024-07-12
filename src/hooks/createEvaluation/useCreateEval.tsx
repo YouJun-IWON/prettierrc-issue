@@ -1,8 +1,8 @@
+import { useMutation } from "@tanstack/react-query";
+
 import { useGenerateData } from "@/store/useGenerateDataStore";
 import { useModal } from "@/store/useModalStore";
 import { useTestDatasetStore } from "@/store/useTestDatasetStore";
-
-import { useMutation } from "@tanstack/react-query";
 
 const useCreateEvalAPI = (): { mutate: any; isPending: any } => {
   const { onClose } = useModal();
@@ -24,13 +24,16 @@ const useCreateEvalAPI = (): { mutate: any; isPending: any } => {
 
   return useMutation({
     mutationFn: async (result: any) => {
-      const response = await fetch(`https://llm-eval.aim-intelligence.com${type}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `https://llm-eval.aim-intelligence.com${type}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(result),
         },
-        body: JSON.stringify(result),
-      });
+      );
 
       if (!response.ok) {
         throw new Error();

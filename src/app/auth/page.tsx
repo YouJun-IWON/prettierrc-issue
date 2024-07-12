@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import { UserAuthForm } from "@/components/form/user-auth-form";
 
 export default function AuthenticationPage() {
@@ -15,11 +16,19 @@ export default function AuthenticationPage() {
         <div className="relative hidden h-full flex-col  bg-muted p-10 text-white lg:flex dark:border-r">
           <div className="absolute inset-0 bg-zinc-900" />
           <div className="relative z-20 flex items-center text-lg font-medium  -translate-y-16">
-            <Image src="/assets/logo2-white.svg" width={300} height={50} alt="login" />
+            <Image
+              src="/assets/logo2-white.svg"
+              width={300}
+              height={50}
+              alt="login"
+            />
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
-              <p className="text-lg">&ldquo;LM Safety & Security Platform Powered by People around world.&rdquo;</p>
+              <p className="text-lg">
+                &ldquo;LM Safety & Security Platform Powered by People around
+                world.&rdquo;
+              </p>
               <footer className="text-sm">AIM Supervisor</footer>
             </blockquote>
           </div>
@@ -27,17 +36,27 @@ export default function AuthenticationPage() {
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">Login to your account</h1>
-              <p className="text-sm text-muted-foreground">Choose your preferred register / sign-in method</p>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                Login to your account
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                Choose your preferred register / sign-in method
+              </p>
             </div>
             <UserAuthForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
-              <Link href="#" className="underline underline-offset-4 hover:text-primary">
+              <Link
+                href="#"
+                className="underline underline-offset-4 hover:text-primary"
+              >
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link href="#" className="underline underline-offset-4 hover:text-primary">
+              <Link
+                href="#"
+                className="underline underline-offset-4 hover:text-primary"
+              >
                 Privacy Policy
               </Link>
               .

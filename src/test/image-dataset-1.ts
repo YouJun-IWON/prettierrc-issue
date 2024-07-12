@@ -4,7 +4,8 @@ export const image_test_dataset_1 = [
     query:
       "This image depicts a busy urban roadway with multiple lanes of traffic. The road is divided into several lanes, each marked with arrows indicating the direction of travel. The traffic includes a mix of cars, taxis, and motorcycles. The surrounding area features greenery, including trees and shrubs, which line the median and sides of the road. In the background, there are high-rise buildings, suggesting that this is a cityscape. Overhead, there are blue road signs providing directions and information to drivers. The scene appears to be during the day, with clear weather conditions.",
     context: "",
-    response: "https://images.pexels.com/photos/15986593/pexels-photo-15986593.jpeg",
+    response:
+      "https://images.pexels.com/photos/15986593/pexels-photo-15986593.jpeg",
     expected: "",
   },
   {

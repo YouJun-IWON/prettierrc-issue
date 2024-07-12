@@ -5,13 +5,15 @@ import { Separator } from "@/components/ui/separator";
 const page = () => {
   return (
     <main>
-      <div className="p-10 pb-16 grid grid-cols-5 w-full">
+      <div className="grid w-full grid-cols-5 p-10 pb-16">
         <section className="col-span-4">
           <div className="space-y-0.5">
-            <h2 className="text-2xl font-bold tracking-tight">Welcome to AIM Supervisor 👋</h2>
+            <h2 className="text-2xl font-bold tracking-tight">
+              Welcome to AIM Supervisor 👋
+            </h2>
             <p className="text-muted-foreground">
-              AIM Supervisor is a full-stack AI observability platform that helps you monitor, evaluate and improve your
-              AI models.
+              AIM Supervisor is a full-stack AI observability platform that
+              helps you monitor, evaluate and improve your AI models.
             </p>
           </div>
           <Separator className="my-6" />

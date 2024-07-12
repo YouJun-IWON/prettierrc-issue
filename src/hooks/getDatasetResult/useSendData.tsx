@@ -1,6 +1,8 @@
 //! 들어온 API 에 따라 데이터를 정렬한다.
-
-import { TestAPIConfigsType, TestDatasetItemType } from "@/validation/test-schema";
+import {
+  TestAPIConfigsType,
+  TestDatasetItemType,
+} from "@/validation/test-schema";
 
 const useSendData = (
   targetData: TestDatasetItemType[],
@@ -12,7 +14,10 @@ const useSendData = (
 
   //! /conversation-coherence-evaluation => n개의 묶음으로 가자
 
-  if (address === "/conversation-coherence-evaluation" || address === "/conversation-resolution-evaluation") {
+  if (
+    address === "/conversation-coherence-evaluation" ||
+    address === "/conversation-resolution-evaluation"
+  ) {
   } else if (address === "/summarization-evaluation") {
     const inputData = targetData.map((item: any) => ({
       document: item.context,
@@ -25,7 +30,9 @@ const useSendData = (
     // console.log("configs", configs);
     // console.log("name", addressName);
 
-    const failureThreshold = configs.find(config => config.name === addressName)?.failure_threshold ?? 0.5;
+    const failureThreshold =
+      configs.find(config => config.name === addressName)?.failure_threshold ??
+      0.5;
 
     result = {
       failure_threshold: failureThreshold,
@@ -38,7 +45,8 @@ const useSendData = (
       text: item.response,
     }));
 
-    const keywords = configs.find(config => config.name === addressName)?.keywords ?? [""];
+    const keywords = configs.find(config => config.name === addressName)
+      ?.keywords ?? [""];
 
     const filteredKeywords = keywords.filter(keyword => keyword !== "");
 
@@ -72,7 +80,9 @@ const useSendData = (
     text2: item.expected,
   }));
 
-  const failureThreshold = configs.find(config => config.name === addressName)?.failure_threshold ?? 0.5;
+  const failureThreshold =
+    configs.find(config => config.name === addressName)?.failure_threshold ??
+    0.5;
 
   result = {
     failure_threshold: failureThreshold,

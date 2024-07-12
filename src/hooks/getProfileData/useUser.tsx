@@ -1,5 +1,6 @@
-import { createClient } from "@/utils/supabase/client";
 import { useQuery } from "@tanstack/react-query";
+
+import { createClient } from "@/utils/supabase/client";
 
 const initUser = {
   created_at: "",
@@ -18,7 +19,11 @@ const useUser = () => {
 
       if (data.session?.user) {
         // fetch user information profile
-        const { data: user } = await supabase.from("profiles").select("*").eq("id", data.session.user.id).single();
+        const { data: user } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("id", data.session.user.id)
+          .single();
 
         return user;
       }

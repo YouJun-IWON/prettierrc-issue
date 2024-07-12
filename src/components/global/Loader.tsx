@@ -4,6 +4,8 @@ interface LoaderProps {
   className?: string;
 }
 
-const Loader = ({ className }: LoaderProps) => <Loader2 className={`animate-spin ${className}`} />;
+const Loader = ({ className }: LoaderProps) => (
+  <Loader2 className={`animate-spin ${className}`} />
+);
 
 export default Loader;

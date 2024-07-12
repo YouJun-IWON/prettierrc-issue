@@ -1,6 +1,7 @@
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
-import { NextResponse, type NextRequest } from "next/server";
-import { authRoutes, DEFAULT_LOGIN_REDIRECT } from "./routes";
+import { type NextRequest, NextResponse } from "next/server";
+
+import { DEFAULT_LOGIN_REDIRECT, authRoutes } from "./routes";
+import { type CookieOptions, createServerClient } from "@supabase/ssr";
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({
@@ -64,7 +65,9 @@ export async function updateSession(request: NextRequest) {
 
   if (isAuthRoute) {
     if (!data.user) {
-      return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, request.url));
+      return NextResponse.redirect(
+        new URL(DEFAULT_LOGIN_REDIRECT, request.url),
+      );
     }
     return response;
   }

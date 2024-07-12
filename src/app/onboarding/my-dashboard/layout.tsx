@@ -1,8 +1,8 @@
 "use client";
 
-import { MessagesProvider } from "@/demo/context/messages";
-
 import { FC, ReactNode } from "react";
+
+import { MessagesProvider } from "@/demo/context/messages";
 
 interface LayoutProps {
   children: ReactNode;

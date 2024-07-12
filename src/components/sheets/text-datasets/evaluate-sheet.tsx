@@ -1,5 +1,18 @@
 "use client";
+
+import { useEffect } from "react";
+
+import { CircleMinus, Play, Settings } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Sheet,
   SheetClose,
@@ -9,21 +22,14 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
-import { Badge } from "@/components/ui/badge";
-import { CircleMinus, Play, Settings } from "lucide-react";
-import { test_API_Data } from "@/test/api";
-import { useSheet } from "@/store/useSheetStore";
-
+import useEvaluationServer from "@/hooks/getDatasetResult/useEvaluationAPI";
 import useSendData from "@/hooks/getDatasetResult/useSendData";
-
+import { useTestAPIConfigsStore } from "@/store/useAPIConfigStore";
 import { useDatasetTable } from "@/store/useDatasetTableStore";
 import useApiStore from "@/store/useEvaluationStore";
-import { useEffect } from "react";
+import { useSheet } from "@/store/useSheetStore";
 import { useTestDatasetStore } from "@/store/useTestDatasetStore";
-import useEvaluationServer from "@/hooks/getDatasetResult/useEvaluationAPI";
-import { useTestAPIConfigsStore } from "@/store/useAPIConfigStore";
+import { test_API_Data } from "@/test/api";
 
 const EvaluateSheet = () => {
   const { onOpen, isOpen, onClose, type } = useSheet();
@@ -34,7 +40,8 @@ const EvaluateSheet = () => {
   const { configs } = useTestAPIConfigsStore();
 
   const { mutate: sendData } = useEvaluationServer();
-  const { active_API, setDefault_API, addToActive, removeFromActive } = useApiStore();
+  const { active_API, setDefault_API, addToActive, removeFromActive } =
+    useApiStore();
 
   useEffect(() => {
     setDefault_API(test_API_Data);
@@ -81,11 +88,15 @@ const EvaluateSheet = () => {
       <SheetContent className="min-w-[600px] flex flex-col py-10 justify-between">
         <SheetHeader>
           <SheetTitle>Run Evaluation List</SheetTitle>
-          <SheetDescription>These evaluations will on every row of the dataset.</SheetDescription>
+          <SheetDescription>
+            These evaluations will on every row of the dataset.
+          </SheetDescription>
         </SheetHeader>
 
         {active_API.length >= 5 ? (
-          <p className="ml-10 -mb-6 text-red-500">Up to 5. To add one, subtract one. </p>
+          <p className="ml-10 -mb-6 text-red-500">
+            Up to 5. To add one, subtract one.{" "}
+          </p>
         ) : (
           <Button
             variant="link"
@@ -165,7 +176,9 @@ const EvaluateSheet = () => {
         <SheetFooter>
           <SheetClose asChild>
             {active_API.length >= 6 ? (
-              <p className="w-full text-center text-red-500">Up to five simultaneous assessments are available. </p>
+              <p className="w-full text-center text-red-500">
+                Up to five simultaneous assessments are available.{" "}
+              </p>
             ) : (
               <Button
                 className="w-full "

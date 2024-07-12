@@ -1,4 +1,8 @@
-import { ChatGPTMessage, OpenAIStream, OpenAIStreamPayload } from "@/demo/openai-stream";
+import {
+  ChatGPTMessage,
+  OpenAIStream,
+  OpenAIStreamPayload,
+} from "@/demo/openai-stream";
 import { MessageArraySchema } from "@/demo/validators/message";
 
 export async function POST(req: Request) {

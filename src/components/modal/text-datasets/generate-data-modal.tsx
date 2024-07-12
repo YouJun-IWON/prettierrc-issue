@@ -1,25 +1,42 @@
 "use client";
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-
 import React from "react";
 
-import { useModal } from "@/store/useModalStore";
-import { Textarea } from "@/components/ui/textarea";
-import { z } from "zod";
-import { useFieldArray, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { cn } from "@/lib/utils";
-import useGenerateServer from "@/hooks/generateTestData/useGenerateAPI";
-import { useGenerateData } from "@/store/useGenerateDataStore";
+import { useFieldArray, useForm } from "react-hook-form";
+import { z } from "zod";
+
 import Loader from "@/components/global/Loader";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import useGenerateServer from "@/hooks/generateTestData/useGenerateAPI";
+import { cn } from "@/lib/utils";
+import { useGenerateData } from "@/store/useGenerateDataStore";
+import { useModal } from "@/store/useModalStore";
 
 const GenerateDataFormSchema = z.object({
   count: z.coerce
@@ -92,20 +109,28 @@ const GenerateData = () => {
               onValueChange={value => setType(value)}
             >
               <TabsList className="grid w-full grid-cols-2 bg-slate-300">
-                <TabsTrigger value="/generate-synthetic-dataset">Synthetic Data</TabsTrigger>
-                <TabsTrigger value="/generate-unsafe-synthetic-dataset">Unsafe Synthetic Data</TabsTrigger>
+                <TabsTrigger value="/generate-synthetic-dataset">
+                  Synthetic Data
+                </TabsTrigger>
+                <TabsTrigger value="/generate-unsafe-synthetic-dataset">
+                  Unsafe Synthetic Data
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="/generate-synthetic-dataset">
                 <Card>
                   <CardHeader>
                     <CardTitle>Synthetic Data</CardTitle>
                     <CardDescription>
-                      Please fill out the information below. The more detailed, the better performance.{" "}
+                      Please fill out the information below. The more detailed,
+                      the better performance.{" "}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-2">
                     <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-6"
+                      >
                         <FormField
                           control={form.control}
                           name="count"
@@ -113,7 +138,13 @@ const GenerateData = () => {
                             <FormItem>
                               <FormLabel>Count</FormLabel>
                               <FormControl>
-                                <Input {...field} type="number" min={0} max={30} step={1} />
+                                <Input
+                                  {...field}
+                                  type="number"
+                                  min={0}
+                                  max={30}
+                                  step={1}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -143,7 +174,11 @@ const GenerateData = () => {
                                 name={`urls.${index}.value`}
                                 render={({ field }) => (
                                   <FormItem>
-                                    <FormLabel className={cn(index !== 0 && "sr-only")}>URLs</FormLabel>
+                                    <FormLabel
+                                      className={cn(index !== 0 && "sr-only")}
+                                    >
+                                      URLs
+                                    </FormLabel>
                                     <div className="grid grid-cols-3 gap-2 items-center">
                                       <FormControl className="col-span-2">
                                         <Input {...field} />
@@ -194,12 +229,16 @@ const GenerateData = () => {
                   <CardHeader>
                     <CardTitle>unSafeSynthetic</CardTitle>
                     <CardDescription>
-                      Change your password here. After saving, you&apos;ll be logged out.
+                      Change your password here. After saving, you&apos;ll be
+                      logged out.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-2">
                     <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-6"
+                      >
                         <FormField
                           control={form.control}
                           name="count"
@@ -207,7 +246,13 @@ const GenerateData = () => {
                             <FormItem>
                               <FormLabel>Count</FormLabel>
                               <FormControl>
-                                <Input {...field} type="number" min={0} max={30} step={1} />
+                                <Input
+                                  {...field}
+                                  type="number"
+                                  min={0}
+                                  max={30}
+                                  step={1}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -237,7 +282,11 @@ const GenerateData = () => {
                                 name={`urls.${index}.value`}
                                 render={({ field }) => (
                                   <FormItem>
-                                    <FormLabel className={cn(index !== 0 && "sr-only")}>URLs</FormLabel>
+                                    <FormLabel
+                                      className={cn(index !== 0 && "sr-only")}
+                                    >
+                                      URLs
+                                    </FormLabel>
                                     <div className="grid grid-cols-3 gap-2 items-center">
                                       <FormControl className="col-span-2">
                                         <Input {...field} />

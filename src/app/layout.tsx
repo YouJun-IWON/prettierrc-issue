@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import "@/styles/globals.css";
-import { ThemeProvider } from "@/providers/theme-provider";
+
+import type { Metadata } from "next";
+
 import QueryProvider from "@/providers/query-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
+import "@/styles/globals.css";
 
 const font = DM_Sans({ subsets: ["latin"] });
 
@@ -20,7 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <QueryProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
             {children}
           </ThemeProvider>
         </QueryProvider>

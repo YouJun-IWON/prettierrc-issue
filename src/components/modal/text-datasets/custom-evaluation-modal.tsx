@@ -1,17 +1,21 @@
 "use client";
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 import React from "react";
 
-import { useModal } from "@/store/useModalStore";
-
 import Classification from "./custom-eval/classification";
-import { useCreateEval } from "@/store/useCreateEvalStore";
 import PassFail from "./custom-eval/passfail";
 import Score from "./custom-eval/score";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useCreateEval } from "@/store/useCreateEvalStore";
+import { useModal } from "@/store/useModalStore";
 
 const CustomEvaluation = () => {
   const { isOpen, onClose, type } = useModal();
@@ -33,9 +37,15 @@ const CustomEvaluation = () => {
               onValueChange={value => setType(value)}
             >
               <TabsList className="grid w-full grid-cols-3 bg-slate-300">
-                <TabsTrigger value="/create-classification-evaluation">Classification</TabsTrigger>
-                <TabsTrigger value="/create-score-evaluation">Score</TabsTrigger>
-                <TabsTrigger value="/create-passfail-evaluation">Pass / Fail</TabsTrigger>
+                <TabsTrigger value="/create-classification-evaluation">
+                  Classification
+                </TabsTrigger>
+                <TabsTrigger value="/create-score-evaluation">
+                  Score
+                </TabsTrigger>
+                <TabsTrigger value="/create-passfail-evaluation">
+                  Pass / Fail
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="/create-classification-evaluation">
                 <Classification />

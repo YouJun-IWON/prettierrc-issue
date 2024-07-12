@@ -1,9 +1,8 @@
+import { Metadata } from "next";
+
 import NavbarOnboarding from "@/components/bar/onboarding/navbar";
 import { ModalProvider } from "@/providers/modal-provider";
-
 import { SheetProvider } from "@/providers/sheet-provider";
-
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "AIM Supervisor Onboarding",

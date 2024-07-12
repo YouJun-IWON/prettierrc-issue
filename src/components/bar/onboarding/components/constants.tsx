@@ -1,5 +1,5 @@
-import { Bot, LayoutGrid, SlidersHorizontal } from "lucide-react";
 import { BarItem } from "../../components/types";
+import { Bot, LayoutGrid, SlidersHorizontal } from "lucide-react";
 
 export const NAVBAR_ITEMS: BarItem[] = [
   {
@@ -8,8 +8,8 @@ export const NAVBAR_ITEMS: BarItem[] = [
     icon: <LayoutGrid strokeWidth={1} width="20" height="20" />,
   },
   {
-    title: "Manual Setting",
-    path: "/onboarding/sandbox",
+    title: "AIM RED",
+    path: "/onboarding/aimred",
     icon: <SlidersHorizontal strokeWidth={1} width="20" height="20" />,
   },
   {

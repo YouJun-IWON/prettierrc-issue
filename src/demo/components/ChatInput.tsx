@@ -1,14 +1,21 @@
 "use client";
 
-import { MessagesContext } from "@/demo/context/messages";
+import {
+  FC,
+  HTMLAttributes,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
-import { Message } from "@/demo/validators/message";
 import { useMutation } from "@tanstack/react-query";
 import { CornerDownLeft, Loader2 } from "lucide-react";
 import { nanoid } from "nanoid";
-import { FC, HTMLAttributes, useContext, useEffect, useRef, useState } from "react";
 
 import { Textarea } from "@/components/ui/textarea";
+import { MessagesContext } from "@/demo/context/messages";
+import { Message } from "@/demo/validators/message";
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -16,8 +23,14 @@ const ChatInput: FC<ChatInputProps> = ({ ...props }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [input, setInput] = useState<string>("");
 
-  const { messages, addMessage, removeMessage, updateMessage, setIsMessageUpdating, setMessages } =
-    useContext(MessagesContext);
+  const {
+    messages,
+    addMessage,
+    removeMessage,
+    updateMessage,
+    setIsMessageUpdating,
+    setMessages,
+  } = useContext(MessagesContext);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -34,12 +47,18 @@ const ChatInput: FC<ChatInputProps> = ({ ...props }) => {
           let updatedMessages = [...messages];
 
           console.log("lastMessage", lastMessage.text);
-          console.log("lastMessageIndex", lastMessage.text.includes("<strong>"));
+          console.log(
+            "lastMessageIndex",
+            lastMessage.text.includes("<strong>"),
+          );
 
           if (lastMessage.text.includes("<strong>")) {
             const updatedLastMessage = {
               ...lastMessage,
-              text: lastMessage.text.replace(/<strong>[\s\S]*/, `<div class="text-lg font-bold">Confirmed! ✅</div>`),
+              text: lastMessage.text.replace(
+                /<strong>[\s\S]*/,
+                `<div class="text-lg font-bold">Confirmed! ✅</div>`,
+              ),
             };
             updatedMessages[messages.length - 1] = updatedLastMessage;
             setMessages(updatedMessages);

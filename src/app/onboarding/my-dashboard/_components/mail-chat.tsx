@@ -1,8 +1,10 @@
 import React from "react";
-import { type Mail } from "./data";
-import { Separator } from "@/components/ui/separator";
 
 import dynamic from "next/dynamic";
+
+import { type Mail } from "./data";
+
+import { Separator } from "@/components/ui/separator";
 import ChatMessages from "@/demo/components/ChatMessages";
 
 interface MailDisplayProps {

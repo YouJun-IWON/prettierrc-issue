@@ -1,5 +1,6 @@
-import { test_API_Data } from "@/test/api";
 import { create } from "zustand";
+
+import { test_API_Data } from "@/test/api";
 
 interface ApiState {
   default_API: typeof test_API_Data;

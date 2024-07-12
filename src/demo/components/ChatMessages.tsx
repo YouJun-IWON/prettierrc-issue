@@ -1,8 +1,9 @@
 "use client";
 
+import { FC, HTMLAttributes, useContext } from "react";
+
 import { MessagesContext } from "@/demo/context/messages";
 import { cn } from "@/lib/utils";
-import { FC, HTMLAttributes, useContext } from "react";
 
 interface ChatMessagesProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -28,10 +29,13 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
               })}
             >
               <div
-                className={cn("flex flex-col space-y-2 text-sm max-w-xl mx-2 overflow-x-hidden", {
-                  "order-1 items-end": message.isUserMessage,
-                  "order-2 items-start": !message.isUserMessage,
-                })}
+                className={cn(
+                  "flex flex-col space-y-2 text-sm max-w-xl mx-2 overflow-x-hidden",
+                  {
+                    "order-1 items-end": message.isUserMessage,
+                    "order-2 items-start": !message.isUserMessage,
+                  },
+                )}
               >
                 <div
                   className={cn("px-4 py-2 rounded-lg", {

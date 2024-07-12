@@ -1,19 +1,34 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { useEffect, useState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useFieldArray, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { useFieldArray, useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { useEffect, useState } from "react";
 
 const GenerateDataFormSchema = z.object({
   categories: z.array(
     z.object({
-      name: z.string().min(1, "Name is required").max(100, "Name must be 100 characters or less"),
+      name: z
+        .string()
+        .min(1, "Name is required")
+        .max(100, "Name must be 100 characters or less"),
       description: z
         .string()
         .min(1, "Description is required")
@@ -40,10 +55,14 @@ const Classification = () => {
   useEffect(() => {
     const subscription = form.watch(value => {
       const values = value.categories?.map(item => item?.name) || [];
-      const duplicates = values.filter((value, index) => values.indexOf(value) !== index);
+      const duplicates = values.filter(
+        (value, index) => values.indexOf(value) !== index,
+      );
 
       if (duplicates.length > 0) {
-        setDuplicateError(`Duplicate category names found: ${duplicates.join(", ")}`);
+        setDuplicateError(
+          `Duplicate category names found: ${duplicates.join(", ")}`,
+        );
       } else {
         setDuplicateError(null);
       }
@@ -54,10 +73,14 @@ const Classification = () => {
 
   function onSubmit(data: z.infer<typeof GenerateDataFormSchema>) {
     const values = data.categories.map(item => item.name);
-    const duplicates = values.filter((value, index) => values.indexOf(value) !== index);
+    const duplicates = values.filter(
+      (value, index) => values.indexOf(value) !== index,
+    );
 
     if (duplicates.length > 0) {
-      setDuplicateError(`Duplicate category names found: ${duplicates.join(", ")}`);
+      setDuplicateError(
+        `Duplicate category names found: ${duplicates.join(", ")}`,
+      );
     } else {
       setDuplicateError(null);
 
@@ -78,7 +101,8 @@ const Classification = () => {
       <CardHeader>
         <CardTitle>Content Classifier</CardTitle>
         <CardDescription>
-          Please fill out the information below. The more detailed, the better performance.
+          Please fill out the information below. The more detailed, the better
+          performance.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
@@ -94,13 +118,21 @@ const Classification = () => {
                       render={({ field }) => (
                         <FormItem className="col-span-2">
                           <FormControl>
-                            <Input {...field} placeholder="Enter category name" />
+                            <Input
+                              {...field}
+                              placeholder="Enter category name"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    <Button type="button" variant="destructive" size="sm" onClick={() => remove(index)}>
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => remove(index)}
+                    >
                       Remove
                     </Button>
                   </div>
@@ -110,7 +142,10 @@ const Classification = () => {
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
-                          <Textarea {...field} placeholder="Enter category description" />
+                          <Textarea
+                            {...field}
+                            placeholder="Enter category description"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -119,7 +154,13 @@ const Classification = () => {
                 </div>
               ))}
               {fields.length < 5 && (
-                <Button type="button" variant="outline" size="sm" className="mt-2" onClick={handleAddCategory}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="mt-2"
+                  onClick={handleAddCategory}
+                >
                   Add Category
                 </Button>
               )}

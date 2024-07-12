@@ -1,21 +1,41 @@
+import { Mail } from "./data";
+import MailChat from "./mail-chat";
 import { addDays } from "date-fns/addDays";
 import { addHours } from "date-fns/addHours";
 import { format } from "date-fns/format";
 import { nextSaturday } from "date-fns/nextSaturday";
-import { Archive, ArchiveX, Clock, Forward, MoreVertical, Reply, ReplyAll, Trash2 } from "lucide-react";
-
-import { DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu";
+import {
+  Archive,
+  ArchiveX,
+  Clock,
+  Forward,
+  MoreVertical,
+  Reply,
+  ReplyAll,
+  Trash2,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Mail } from "./data";
-import MailChat from "./mail-chat";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface MailDisplayProps {
   mail: Mail | null;
@@ -70,21 +90,41 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                 <div className="flex flex-col gap-2 border-r px-2 py-4">
                   <div className="px-4 text-sm font-medium">Snooze until</div>
                   <div className="grid min-w-[250px] gap-1">
-                    <Button variant="ghost" className="justify-start font-normal">
+                    <Button
+                      variant="ghost"
+                      className="justify-start font-normal"
+                    >
                       Later today{" "}
-                      <span className="ml-auto text-muted-foreground">{format(addHours(today, 4), "E, h:m b")}</span>
+                      <span className="ml-auto text-muted-foreground">
+                        {format(addHours(today, 4), "E, h:m b")}
+                      </span>
                     </Button>
-                    <Button variant="ghost" className="justify-start font-normal">
+                    <Button
+                      variant="ghost"
+                      className="justify-start font-normal"
+                    >
                       Tomorrow
-                      <span className="ml-auto text-muted-foreground">{format(addDays(today, 1), "E, h:m b")}</span>
+                      <span className="ml-auto text-muted-foreground">
+                        {format(addDays(today, 1), "E, h:m b")}
+                      </span>
                     </Button>
-                    <Button variant="ghost" className="justify-start font-normal">
+                    <Button
+                      variant="ghost"
+                      className="justify-start font-normal"
+                    >
                       This weekend
-                      <span className="ml-auto text-muted-foreground">{format(nextSaturday(today), "E, h:m b")}</span>
+                      <span className="ml-auto text-muted-foreground">
+                        {format(nextSaturday(today), "E, h:m b")}
+                      </span>
                     </Button>
-                    <Button variant="ghost" className="justify-start font-normal">
+                    <Button
+                      variant="ghost"
+                      className="justify-start font-normal"
+                    >
                       Next week
-                      <span className="ml-auto text-muted-foreground">{format(addDays(today, 7), "E, h:m b")}</span>
+                      <span className="ml-auto text-muted-foreground">
+                        {format(addDays(today, 7), "E, h:m b")}
+                      </span>
                     </Button>
                   </div>
                 </div>
@@ -145,7 +185,9 @@ export function MailDisplay({ mail }: MailDisplayProps) {
       {mail ? (
         <MailChat mail={mail} />
       ) : (
-        <div className="p-8 text-center text-muted-foreground">No message selected</div>
+        <div className="p-8 text-center text-muted-foreground">
+          No message selected
+        </div>
       )}
     </div>
   );

@@ -1,13 +1,25 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { useForm } from "react-hook-form";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { useState } from "react";
 
 const GenerateDataFormSchema = z.object({
   true_description: z
@@ -36,7 +48,9 @@ const Classification = () => {
     const { true_description, false_description } = data;
 
     if (true_description === false_description) {
-      setDuplicateError("True description and false description cannot be the same.");
+      setDuplicateError(
+        "True description and false description cannot be the same.",
+      );
     } else {
       setDuplicateError(null);
 
@@ -51,7 +65,8 @@ const Classification = () => {
       <CardHeader>
         <CardTitle>Pass / Fail Classifier</CardTitle>
         <CardDescription>
-          Please fill out the information below. The more detailed, the better performance.
+          Please fill out the information below. The more detailed, the better
+          performance.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-2">
@@ -65,7 +80,10 @@ const Classification = () => {
                   <FormItem>
                     <FormLabel>True Description</FormLabel>
                     <FormControl>
-                      <Textarea {...field} placeholder="Enter true description" />
+                      <Textarea
+                        {...field}
+                        placeholder="Enter true description"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -78,7 +96,10 @@ const Classification = () => {
                   <FormItem>
                     <FormLabel>False Description</FormLabel>
                     <FormControl>
-                      <Textarea {...field} placeholder="Enter false description" />
+                      <Textarea
+                        {...field}
+                        placeholder="Enter false description"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

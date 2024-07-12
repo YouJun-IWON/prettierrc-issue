@@ -1,15 +1,23 @@
 "use client";
+
+import { useEffect, useState } from "react";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { useTestAPIConfigsStore } from "@/store/useAPIConfigStore";
-
 import { useSheet } from "@/store/useSheetStore";
-import { useEffect, useState } from "react";
 
 const EvaluateDetailSheet = () => {
   const { onOpen, isOpen, onClose, type, data } = useSheet();
@@ -22,11 +30,15 @@ const EvaluateDetailSheet = () => {
   const [failureThreshold, setFailureThreshold] = useState(
     existingConfig ? Number(existingConfig.failure_threshold) : 0.5,
   );
-  const [keywords, setKeywords] = useState(existingConfig ? existingConfig.keywords : [""]);
+  const [keywords, setKeywords] = useState(
+    existingConfig ? existingConfig.keywords : [""],
+  );
 
   useEffect(() => {
     const existingConfig = configs.find(config => config.name === items?.name);
-    setFailureThreshold(existingConfig ? Number(existingConfig.failure_threshold) : 0.5);
+    setFailureThreshold(
+      existingConfig ? Number(existingConfig.failure_threshold) : 0.5,
+    );
   }, [configs, items]);
 
   useEffect(() => {
@@ -35,7 +47,9 @@ const EvaluateDetailSheet = () => {
 
   if (!items) return;
 
-  const defaultFailureThreshold = existingConfig ? Number(existingConfig.failure_threshold) : failureThreshold;
+  const defaultFailureThreshold = existingConfig
+    ? Number(existingConfig.failure_threshold)
+    : failureThreshold;
 
   const inputs = [...items.input];
   const outputs = [...items.output];
@@ -141,7 +155,11 @@ const EvaluateDetailSheet = () => {
           <p>Outputs :</p>
           <div className="flex flex-wrap gap-2">
             {outputs.map((item, idx) => (
-              <Badge variant="secondary" className={cn(idx === 0 && "bg-yellow-400")} key={idx}>
+              <Badge
+                variant="secondary"
+                className={cn(idx === 0 && "bg-yellow-400")}
+                key={idx}
+              >
                 {item}
               </Badge>
             ))}
@@ -180,7 +198,10 @@ const EvaluateDetailSheet = () => {
                       className="flex-1"
                     />
                     {keywords.length > 1 && (
-                      <Button onClick={() => handleRemoveKeyword(index)} variant="destructive">
+                      <Button
+                        onClick={() => handleRemoveKeyword(index)}
+                        variant="destructive"
+                      >
                         Remove
                       </Button>
                     )}

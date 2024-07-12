@@ -1,15 +1,23 @@
 "use client";
 
-import { MessagesContext } from "@/demo/context/messages";
-import { Message } from "@/demo/validators/message";
+import {
+  FC,
+  HTMLAttributes,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import { RiUpload2Line } from "@remixicon/react";
 import { useMutation } from "@tanstack/react-query";
 import { CornerDownLeft, Loader2 } from "lucide-react";
 import { nanoid } from "nanoid";
-import { FC, HTMLAttributes, useContext, useEffect, useRef, useState } from "react";
 
-import { Textarea } from "@/components/ui/textarea";
-import { RiUpload2Line } from "@remixicon/react";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { MessagesContext } from "@/demo/context/messages";
+import { Message } from "@/demo/validators/message";
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -17,8 +25,14 @@ const ChatInput: FC<ChatInputProps> = ({ ...props }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [input, setInput] = useState<string>("");
   const [fileName, setFileName] = useState<string | null>(null);
-  const { messages, addMessage, removeMessage, updateMessage, setIsMessageUpdating, setMessages } =
-    useContext(MessagesContext);
+  const {
+    messages,
+    addMessage,
+    removeMessage,
+    updateMessage,
+    setIsMessageUpdating,
+    setMessages,
+  } = useContext(MessagesContext);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -35,12 +49,18 @@ const ChatInput: FC<ChatInputProps> = ({ ...props }) => {
           let updatedMessages = [...messages];
 
           console.log("lastMessage", lastMessage.text);
-          console.log("lastMessageIndex", lastMessage.text.includes("<strong>"));
+          console.log(
+            "lastMessageIndex",
+            lastMessage.text.includes("<strong>"),
+          );
 
           if (lastMessage.text.includes("<strong>")) {
             const updatedLastMessage = {
               ...lastMessage,
-              text: lastMessage.text.replace(/<strong>[\s\S]*/, `<div class="text-lg font-bold">Confirmed! ✅</div>`),
+              text: lastMessage.text.replace(
+                /<strong>[\s\S]*/,
+                `<div class="text-lg font-bold">Confirmed! ✅</div>`,
+              ),
             };
             updatedMessages[messages.length - 1] = updatedLastMessage;
             setMessages(updatedMessages);
@@ -161,7 +181,10 @@ const ChatInput: FC<ChatInputProps> = ({ ...props }) => {
           <>
             <div className="mt-4 flex justify-center space-x-4  border border-dashed border-gray-300 px-6 py-10 ">
               <div className="sm:flex sm:items-center sm:space-x-3">
-                <RiUpload2Line className="mx-auto h-8 w-8   sm:mx-0 sm:h-6 sm:w-6" aria-hidden={true} />
+                <RiUpload2Line
+                  className="mx-auto h-8 w-8   sm:mx-0 sm:h-6 sm:w-6"
+                  aria-hidden={true}
+                />
                 <div className="mt-4 flex  leading-6  sm:mt-0">
                   {fileName ? (
                     <div className="flex items-center justify-center gap-2">
@@ -191,7 +214,8 @@ const ChatInput: FC<ChatInputProps> = ({ ...props }) => {
               </div>
             </div>
             <p className="mt-2 flex items-center justify-between  leading-5 ">
-              Recommended max. size: 10 MB, Accepted file types: XLSX, XLS, CSV, TXT.
+              Recommended max. size: 10 MB, Accepted file types: XLSX, XLS, CSV,
+              TXT.
             </p>
           </>
         ) : (
