@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
-
 export default function GlobalError({
   error,
   reset,
@@ -14,7 +12,7 @@ export default function GlobalError({
   console.error(error);
   return (
     <html>
-      <body className="flex flex-col items-center justify-center h-full">
+      <body className="flex h-full flex-col items-center justify-center">
         <Image
           src="/page/server_down.svg"
           width={500}
@@ -22,7 +20,6 @@ export default function GlobalError({
           alt="server_down"
         />
         <h2 className="text-3xl">Something went wrong!</h2>
-        <Button onClick={() => reset()}>Try again</Button>
       </body>
     </html>
   );

@@ -147,6 +147,7 @@ const config = {
         },
       },
       animation: {
+        shimmer: "shimmer 2s linear infinite",
         hide: "hide 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideDownAndFade:
           "slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)",
@@ -165,7 +166,7 @@ const config = {
           "dialogContentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         "slide-down-fade": "slide-down-fade ease-in-out",
         "slide-up-fade": "slide-up-fade ease-in-out",
-        shimmer: "shimmer 2s linear infinite",
+
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "automation-zoom-in": "automation-zoom-in 0.5s",
@@ -173,7 +174,7 @@ const config = {
     },
   },
 
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms")],
 } satisfies Config;
 
 export default config;

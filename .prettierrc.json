@@ -9,7 +9,7 @@
     "prettier-plugin-tailwindcss",
     "@trivago/prettier-plugin-sort-imports"
   ],
-  "tailwindFunctions": ["tv", "cx"],
+  "tailwindFunctions": ["tv", "cx", "cn"],
   "importOrder": [
     "^react$",
     "^next/(.*)$",
