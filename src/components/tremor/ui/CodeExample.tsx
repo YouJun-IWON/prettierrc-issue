@@ -7,7 +7,7 @@ import {
   RiStackLine,
 } from "@remixicon/react";
 
-import Code from "@/components/Code";
+import Code from "@/components/tremor/Code";
 
 const code = `CREATE TABLE Customers (
     customer_id SERIAL PRIMARY KEY,

@@ -3,7 +3,7 @@ import React from "react";
 interface BadgeProps extends React.ComponentPropsWithoutRef<"span"> {}
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ children, className, ...props }: BadgeProps, forwardedRef) => {
+  ({ children, ...props }: BadgeProps, forwardedRef) => {
     return (
       <span
         ref={forwardedRef}

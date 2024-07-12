@@ -2,7 +2,6 @@
 
 import { Button } from "../Button";
 import { Input } from "../Input";
-import Balancer from "react-wrap-balancer";
 
 export default function Cta() {
   return (
@@ -38,11 +37,8 @@ export default function Cta() {
               >
                 Ready to get started?
               </h3>
-              <p className="mx-auto mt-4 max-w-2xl text-gray-600 sm:text-lg dark:text-gray-400">
-                <Balancer>
-                  Launch a new cluster or migrate to Database with zero
-                  downtime.
-                </Balancer>
+              <p className="mx-auto text-balance mt-4 max-w-2xl text-gray-600 sm:text-lg dark:text-gray-400">
+                Launch a new cluster or migrate to Database with zero downtime.
               </p>
             </div>
             <div className="mt-14 w-full rounded-[16px] bg-gray-300/5 p-1.5 ring-1 ring-black/[3%] backdrop-blur dark:bg-gray-900/10 dark:ring-white/[3%]">

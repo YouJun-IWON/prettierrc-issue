@@ -9,6 +9,8 @@ import { cx } from "@/lib/utils";
 
 // Tremor Raw Tooltip [v0.0.1]
 
+// Tremor Raw Tooltip [v0.0.1]
+
 interface TooltipProps
   extends Omit<TooltipPrimitives.TooltipContentProps, "content" | "onClick">,
     Pick<
