@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AIM Dashboard Onboarding Sandbox datasets",
+  title: "AIM Supervisor Onboarding Manual Setting datasets",
   description: "Show Your LLM safety and security status",
 };
 

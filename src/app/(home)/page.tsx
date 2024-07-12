@@ -11,7 +11,7 @@ export default async function Home() {
         <div className="mt-20">
           <p className="text-center">Run your LLM, in safe zone</p>
           <div className="bg-gradient-to-r from-primary to-secondary-foreground text-transparent bg-clip-text relative">
-            <h1 className="text-9xl font-bold text-center md:text-[200px]">AIM Dashboard</h1>
+            <h1 className="text-9xl font-bold text-center md:text-[200px]">AIM Supervisor</h1>
           </div>
           <div className="flex justify-center items-center relative md:mt-[-50px]">
             <Image

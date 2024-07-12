@@ -6,7 +6,7 @@ import { SheetProvider } from "@/providers/sheet-provider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AIM Dashboard Onboarding",
+  title: "AIM Supervisor Onboarding",
   description: "Show Your LLM safety and security status",
 };
 

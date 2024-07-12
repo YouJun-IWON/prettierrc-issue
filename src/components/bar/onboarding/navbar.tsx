@@ -22,7 +22,7 @@ const NavbarOnboarding = () => {
         <div className="flex items-center space-x-4">
           <Link href="/" target="_blank" className="flex flex-row space-x-3 items-center justify-center">
             <Image src="/assets/aim-dashboard-logo.svg" width={40} height={40} alt="plur logo" />
-            <p className="font-bold">AIM Guard</p>
+            <p className="font-bold">AIM Supervisor</p>
           </Link>
         </div>
 

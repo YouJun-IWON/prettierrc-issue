@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AIM Dashboard Onboarding Sandbox",
+  title: "AIM Supervisor Onboarding Manual Setting",
   description: "Show Your LLM safety and security status",
 };
 

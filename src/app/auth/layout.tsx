@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AIM Dashboard Login",
+  title: "AIM Supervisor Login",
   description: "Show Your LLM safety and security status",
 };
 

@@ -1,22 +1,15 @@
-import Sidebar from "@/components/bar/onboarding/sandbox/sidebar";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "AIM Dashboard Onboarding Sandbox",
-  description: "Show Your LLM safety and security status",
+import { MessagesProvider } from "@/demo/context/messages";
+
+import { FC, ReactNode } from "react";
+
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
+  return <MessagesProvider>{children}</MessagesProvider>;
 };
 
-const layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <main>
-      <TooltipProvider>
-        <Sidebar />
-      </TooltipProvider>
-
-      {children}
-    </main>
-  );
-};
-
-export default layout;
+export default Layout;

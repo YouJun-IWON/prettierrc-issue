@@ -7,7 +7,7 @@ import QueryProvider from "@/providers/query-provider";
 const font = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AIM Dashboard",
+  title: "AIM Supervisor",
   description: "Show Your LLM safety and security status",
 };
 

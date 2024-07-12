@@ -24,7 +24,7 @@ const Breadcrumbset = () => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/onboarding/sandbox">Dashboard</Link>
+            <Link href="/onboarding/sandbox">Supervisor</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
 

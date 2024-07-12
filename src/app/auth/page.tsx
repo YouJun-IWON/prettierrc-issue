@@ -20,7 +20,7 @@ export default function AuthenticationPage() {
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">&ldquo;LM Safety & Security Platform Powered by People around world.&rdquo;</p>
-              <footer className="text-sm">AIM Dashboard</footer>
+              <footer className="text-sm">AIM Supervisor</footer>
             </blockquote>
           </div>
         </div>
